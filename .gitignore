@@ -22,3 +22,4 @@ slurm_*.err
 *:mshield
 .ipynb_checkpoints/
 .account
+data/external/qmof_xtb_subset/

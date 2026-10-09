@@ -1,0 +1,22 @@
+QMOF validation subset selection report
+=======================================
+Source CSV: C:\Users\humbe\OneDrive\Documents\qmof.csv
+CIF folder: C:\Users\humbe\OneDrive\Documents\relaxed_structures
+Pool after filters: 18,284
+Selected total: 2,000
+
+Tier breakdown:
+                   n  median_natoms  max_natoms  median_gap  min_gap  max_gap
+_tier                                                                        
+tier1_conductor  800           92.0         492       0.250    0.001    0.500
+tier2_small_gap  800           90.0         488       1.000    0.501    1.499
+tier3_insulator  400           92.0         486       3.395    1.502    5.997
+
+Excluded elements:
+  Lanthanides:   ['Ce', 'Dy', 'Er', 'Eu', 'Gd', 'Ho', 'La', 'Lu', 'Nd', 'Pm', 'Pr', 'Sm', 'Tb', 'Tm', 'Yb']
+  Z>86 / actinides: ['Ac', 'Am', 'Bh', 'Bk', 'Cf', 'Cm', 'Cn', 'Db', 'Ds', 'Es', 'Fl', 'Fm', 'Fr', 'Hs', 'Lr', 'Lv', 'Mc', 'Md', 'Mt', 'Nh', 'No', 'Np', 'Og', 'Pa', 'Pu', 'Ra', 'Rf', 'Rg', 'Sg', 'Th', 'Ts', 'U']
+  Rare radioactive: ['At', 'Po', 'Rn', 'Tc']
+
+Config:
+  require_synthesized = False
+  seed = 42
