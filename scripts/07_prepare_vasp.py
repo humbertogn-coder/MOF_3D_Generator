@@ -6,10 +6,9 @@ Usage
     python scripts/07_prepare_vasp.py --batch data/al/iter0/selected_batch.csv \
         --cifs data/catalogue/cifs --out runs/iter0
 
-Creates runs/iter0/<name>/relax/{POSCAR,INCAR,KPOINTS,POTCAR.spec}, static/{INCAR,KPOINTS}
-and copies the
-SLURM driver (hpc/run_relax_static.slrm). On the cluster, run hpc/make_potcar.sh in
-each folder (needs your licensed PAW_PBE 52/54 set) and submit.
+Creates runs/iter0/<name>/relax/{POSCAR,INCAR,KPOINTS,POTCAR.spec}, static/{INCAR,KPOINTS},
+a SLURM driver per structure (run.slrm) and the helper scripts in runs/iter0/
+(submit_all.sh, make_potcar.sh, check_status.sh, collect_results.sh). See hpc/README.md.
 """
 from __future__ import annotations
 
@@ -46,6 +45,8 @@ def main():
         mesh = open(folder / 'relax' / 'KPOINTS').read().splitlines()[3].split()
         print(f"{name}: {len(s)} atoms, k-mesh {'x'.join(mesh)}")
     batch.to_csv(out / "batch.csv", index=False)
+    for helper in ("make_potcar.sh", "submit_all.sh", "check_status.sh", "collect_results.sh"):
+        shutil.copy(ROOT / "hpc" / helper, out / helper)
 
 
 if __name__ == "__main__":
