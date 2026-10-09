@@ -23,3 +23,4 @@ slurm_*.err
 .ipynb_checkpoints/
 .account
 data/external/qmof_xtb_subset/
+results/*.log

@@ -82,7 +82,7 @@ def main():
     modes = ["periodic", "molecular"] if args.mode == "both" else [args.mode]
     new = not out.exists()
     with open(out, "a", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=FIELDS)
+        w = csv.DictWriter(fh, fieldnames=FIELDS, lineterminator="\n")
         if new:
             w.writeheader()
         for cif in sorted(Path(args.cifs).glob("*.cif")):

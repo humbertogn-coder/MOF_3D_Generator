@@ -63,6 +63,9 @@ pyzeo (Zeo++ bindings), xgboost, lightgbm, shap.
 | Parse DFT | `python scripts/08_parse_dft.py --runs runs/iter<k> --iteration k` | `data/dft/dft_results.csv` |
 | Surrogate trends | `python scripts/10_surrogate_analysis.py --iteration 0` | `results/surrogate/*.csv` |
 | Figures | `python scripts/11_make_figures.py --iteration k` | `results/figures/*.pdf` |
+| QMOF PBE vs HSE06 | `python scripts/12_qmof_pbe_vs_hse06.py` | `results/qmof_pbe_vs_hse06/*.csv` |
+| GFN1-xTB gaps, 2,000 QMOF MOFs (~13 CPU h) | `python scripts/13_xtb_validation.py --cifs data/external/qmof_xtb_subset/cifs --mode periodic` | `results/xtb/xtb_gfn1_gaps.csv` |
+| Periodic vs cluster xTB analysis | `python scripts/14_xtb_analysis.py` | `results/xtb/xtb_summary.csv`, `fig_xtb_periodic_vs_cluster.pdf` |
 
 All random seeds are fixed. The benchmark split is `train_test_split(test_size=0.2,
 stratify=gap<1 eV, random_state=42)`; the surrogate ensemble uses seeds

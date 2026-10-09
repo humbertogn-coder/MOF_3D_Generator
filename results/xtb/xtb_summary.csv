@@ -1,0 +1,17 @@
+group,treatment,reference,n,MAE_eV,RMSE_eV,bias_eV,pearson_r,spearman_rho,pct_xtb_gap_lt_0.1,ROC_AUC_PBE_lt_1
+all,cluster,PBE,1828,1.221,1.825,-1.219,0.037,0.062,97.593,0.533
+all,cluster,HSE06,853,3.420,3.785,-3.420,0.026,0.088,97.069,0.524
+all,periodic,PBE,1998,0.604,0.894,0.369,0.818,0.621,6.707,0.830
+all,periodic,HSE06,854,1.600,1.842,-1.441,0.736,0.579,4.333,0.717
+closed-shell,cluster,PBE,755,2.148,2.709,-2.148,0.106,0.193,97.483,0.586
+closed-shell,cluster,HSE06,314,4.485,4.874,-4.485,0.008,0.189,96.178,0.614
+closed-shell,periodic,PBE,791,0.401,0.611,0.103,0.932,0.898,3.919,0.913
+closed-shell,periodic,HSE06,313,1.400,1.524,-1.345,0.928,0.952,3.195,0.947
+open-shell 3d,cluster,PBE,1072,0.569,0.716,-0.566,-0.018,-0.015,97.668,0.510
+open-shell 3d,cluster,HSE06,538,2.806,2.975,-2.805,-0.066,-0.022,97.584,0.469
+open-shell 3d,periodic,PBE,1205,0.734,1.035,0.541,0.304,0.288,8.548,0.705
+open-shell 3d,periodic,HSE06,540,1.715,2.004,-1.502,0.031,-0.007,5.000,0.476
+other,cluster,PBE,1,,,,,,,
+other,cluster,HSE06,1,,,,,,,
+other,periodic,PBE,2,,,,,,,
+other,periodic,HSE06,1,,,,,,,
