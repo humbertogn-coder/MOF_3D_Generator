@@ -66,6 +66,7 @@ pyzeo (Zeo++ bindings), xgboost, lightgbm, shap.
 | QMOF PBE vs HSE06 | `python scripts/12_qmof_pbe_vs_hse06.py` | `results/qmof_pbe_vs_hse06/*.csv` |
 | GFN1-xTB gaps, 2,000 QMOF MOFs (~13 CPU h) | `python scripts/13_xtb_validation.py --cifs data/external/qmof_xtb_subset/cifs --mode periodic` | `results/xtb/xtb_gfn1_gaps.csv` |
 | Periodic vs cluster xTB analysis | `python scripts/14_xtb_analysis.py` | `results/xtb/xtb_summary.csv`, `fig_xtb_periodic_vs_cluster.pdf` |
+| Retrospective AL benchmark on QMOF (20 repeats, ~45 min on 2 cores) | `python scripts/15_retrospective_al.py` then `--summarize` | `results/retro_al/*.csv`, `fig_retrospective_al.pdf` |
 
 All random seeds are fixed. The benchmark split is `train_test_split(test_size=0.2,
 stratify=gap<1 eV, random_state=42)`; the surrogate ensemble uses seeds
