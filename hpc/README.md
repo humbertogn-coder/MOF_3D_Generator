@@ -5,7 +5,10 @@ self-contained: one sub-folder per structure (`relax/`, `static/`, `run.slrm`) p
 helper scripts `submit_all.sh`, `make_potcar.sh`, `check_status.sh`, `collect_results.sh`.
 
 Defaults in `run.slrm` match the earlier Grace runs:
-- account 132737590024, partition `medium`, 24 h, 48 cores, 120 GB;
+- partition `medium`, 24 h, 48 cores, 120 GB;
+- Slurm account: not hard-coded. Run `myproject` on Grace to see your active
+  allocations (they renew each fiscal year), then
+  `echo <account> > .account` in the iteration folder (or `ACCOUNT=<account> bash submit_all.sh`);
 - modules `intel/2022a` and `vasp/6.3.2`;
 - `vasp_gam` for Γ-only meshes, `vasp_std` otherwise.
 

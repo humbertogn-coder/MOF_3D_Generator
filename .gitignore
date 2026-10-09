@@ -21,3 +21,4 @@ slurm_*.err
 *:Zone.Identifier
 *:mshield
 .ipynb_checkpoints/
+.account

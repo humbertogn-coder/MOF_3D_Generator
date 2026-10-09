@@ -1,6 +1,5 @@
 #!/bin/bash
 #SBATCH --job-name=mofal
-#SBATCH --account=132737590024
 #SBATCH --partition=medium
 #SBATCH --time=24:00:00
 #SBATCH --nodes=1
@@ -20,7 +19,8 @@
 # Layout (written by scripts/07_prepare_vasp.py):
 #   <name>/relax/{POSCAR,INCAR,KPOINTS,POTCAR}   <name>/static/{INCAR,KPOINTS}
 # Settings below are the ones used on TAMU Grace for the previous runs
-# (intel/2022a + vasp/6.3.2); edit account/modules for another cluster.
+# (intel/2022a + vasp/6.3.2); edit modules for another cluster. The Slurm account is
+# passed by submit_all.sh (ACCOUNT variable or .account file); see hpc/README.md.
 # ---------------------------------------------------------------------------
 set -uo pipefail
 cd "$SLURM_SUBMIT_DIR"
