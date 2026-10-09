@@ -7,7 +7,7 @@
 set -euo pipefail
 ROOT=$(cd "$(dirname "$0")" && pwd)
 cd "$ROOT"
-running=$(squeue -u "$USER" -h -o "%j" 2>/dev/null || true)
+running=$(squeue -u "${USER:-$(whoami)}" -h -o "%j" 2>/dev/null || true)
 targets=("$@")
 [ ${#targets[@]} -eq 0 ] && targets=(*/)
 for d in "${targets[@]}"; do
