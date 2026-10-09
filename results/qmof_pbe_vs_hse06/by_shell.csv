@@ -1,0 +1,3 @@
+shell,n,median_PBE,median_HSE06,median_HSE06_minus_PBE,n_PBE_lt_1,pct_PBE_lt_1_with_HSE_lt_1,pct_PBE_lt_1_with_HSE_lt_2
+open-shell 3d (Ti-Cu),2927.0,0.89,3.24,2.22,1901.0,2.26,14.83
+other,7883.0,2.8,4.04,1.24,189.0,16.4,41.8

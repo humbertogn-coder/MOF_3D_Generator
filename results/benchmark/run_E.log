@@ -1,0 +1,25 @@
+QMOF rows after cleaning: 20,372
+train 16,297  test 4,075
+[reg] E Ridge                  R2=0.661 MAE=0.501
+[reg] E ElasticNet             R2=0.654 MAE=0.504
+[reg] E KNN                    R2=0.694 MAE=0.447
+[reg] E SVR_RBF                R2=0.742 MAE=0.406
+[reg] E RandomForest           R2=0.764 MAE=0.395
+[reg] E ExtraTrees             R2=0.766 MAE=0.391
+[reg] E GradientBoosting       R2=0.700 MAE=0.471
+[reg] E HistGradientBoosting   R2=0.751 MAE=0.420
+[reg] E MLP                    R2=0.742 MAE=0.420
+[reg] E XGBoost                R2=0.785 MAE=0.380
+[reg] E LightGBM               R2=0.774 MAE=0.388
+[reg] E DummyMean              R2=-0.000 MAE=0.938
+[cls] E LogisticRegression     AUC=0.924 F1=0.741
+[cls] E KNN                    AUC=0.933 F1=0.770
+[cls] E SVC_RBF                AUC=0.936 F1=0.779
+[cls] E RandomForest           AUC=0.954 F1=0.807
+[cls] E ExtraTrees             AUC=0.954 F1=0.809
+[cls] E GradientBoosting       AUC=0.943 F1=0.795
+[cls] E HistGradientBoosting   AUC=0.949 F1=0.793
+[cls] E MLP                    AUC=0.940 F1=0.782
+[cls] E XGBoost                AUC=0.954 F1=0.815
+[cls] E LightGBM               AUC=0.953 F1=0.819
+[cls] E DummyMostFrequent      AUC=0.500 F1=0.000

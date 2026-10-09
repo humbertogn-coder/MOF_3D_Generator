@@ -1,0 +1,14 @@
+# exact versions used to produce the results in this repository (Python 3.13)
+pormake==0.2.3
+jax==0.11.2
+ase==3.29.0
+pymatgen==2026.9.24
+pyzeo==0.2.0
+numpy==2.5.3
+scipy==1.18.1
+pandas==3.0.6
+scikit-learn==1.9.1
+xgboost==3.4.1
+lightgbm==4.7.0
+shap==0.52.0
+matplotlib==3.11.2

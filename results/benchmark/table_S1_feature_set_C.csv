@@ -1,0 +1,13 @@
+model,R2,MAE_eV,RMSE_eV,Spearman,classifier_used,ROC_AUC,F1
+Ridge,0.6,0.543,0.716,0.773,LogisticRegression,0.914,0.74
+ElasticNet,0.599,0.544,0.718,0.772,LogisticRegression,0.914,0.74
+KNN,0.689,0.447,0.632,0.825,KNN,0.93,0.764
+SVR_RBF,0.694,0.443,0.627,0.832,SVC_RBF,0.928,0.771
+RandomForest,0.743,0.407,0.574,0.856,RandomForest,0.948,0.795
+ExtraTrees,0.751,0.394,0.565,0.86,ExtraTrees,0.947,0.805
+GradientBoosting,0.675,0.483,0.646,0.81,GradientBoosting,0.93,0.781
+HistGradientBoosting,0.714,0.443,0.606,0.835,HistGradientBoosting,0.939,0.769
+MLP,0.705,0.45,0.616,0.835,MLP,0.934,0.768
+XGBoost,0.747,0.405,0.57,0.856,XGBoost,0.944,0.798
+LightGBM,0.739,0.412,0.579,0.851,LightGBM,0.944,0.8
+DummyMean,-0.0,0.938,1.133,,DummyMostFrequent,0.5,0.0

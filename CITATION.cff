@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the article and this repository."
+title: "Active learning for low-band-gap 3D metal-organic frameworks (code and data)"
+authors:
+  - family-names: Guerrero Navarro
+    given-names: C. H.
+    affiliation: Texas A&M University
+  - family-names: Ghotbi
+    given-names: Maryam
+    affiliation: Texas A&M University
+  - family-names: Balbuena
+    given-names: Perla B.
+    affiliation: Texas A&M University
+license: MIT
+version: 0.1.0
+date-released: 2026-10-08

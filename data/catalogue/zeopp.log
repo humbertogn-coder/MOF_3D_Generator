@@ -1,0 +1,2495 @@
+/home/claude/venv/lib/python3.13/site-packages/ase/io/cif.py:411: UserWarning: crystal system 'triclinic' is not interpreted for space group Spacegroup(1, setting=1). This may result in wrong setting!
+  warnings.warn(
+Opening File: data/catalogue/cifs/bcu__Co-N35__long-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(21.673000 0 0)
+  vb=(-0.124649 21.773643 0)
+  vc=(-0.746615 -1.084367 18.068098)
+
+Total particles = 2344
+
+Internal grid size = (7 7 6)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 8526.338565
+  Total Voronoi volume = 8526.338565
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+bcu__Co-N35__long-H                           LCD= 12.31 PLD= 10.26 rho=0.466
+Opening File: data/catalogue/cifs/bcu__Co-N35__long-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(20.832000 0 0)
+  vb=(-0.123470 20.929636 0)
+  vc=(-0.732867 -1.065014 17.365945)
+
+Total particles = 2336
+
+Internal grid size = (7 7 6)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 7571.659244
+  Total Voronoi volume = 7571.659244
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+bcu__Co-N35__long-Nring1                      LCD= 11.48 PLD=  9.01 rho=0.527
+Opening File: data/catalogue/cifs/bcu__Co-N35__long-Nring2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(21.673000 0 0)
+  vb=(-0.124649 21.773643 0)
+  vc=(-0.746615 -1.084367 18.068098)
+
+Total particles = 2328
+
+Internal grid size = (7 7 6)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 8526.338565
+  Total Voronoi volume = 8526.338565
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+bcu__Co-N35__long-Nring2                      LCD= 12.42 PLD= 10.42 rho=0.469
+Opening File: data/catalogue/cifs/bcu__Co-N35__short-F4.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 2.
+Box dimensions:
+  va=(15.666000 0 0)
+  vb=(-0.114570 15.741583 0)
+  vc=(-0.649672 -0.945690 13.052670)
+
+Total particles = 1592
+
+Internal grid size = (7 7 6)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 3218.888258
+  Total Voronoi volume = 3218.888258
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+bcu__Co-N35__short-F4                         LCD=  6.98 PLD=  4.56 rho=1.218
+Opening File: data/catalogue/cifs/bcu__Co-N35__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(16.057000 0 0)
+  vb=(-0.115451 16.133587 0)
+  vc=(-0.655955 -0.954734 13.377944)
+
+Total particles = 1592
+
+Internal grid size = (7 7 6)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 3465.650156
+  Total Voronoi volume = 3465.650156
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+bcu__Co-N35__short-H                          LCD=  7.44 PLD=  5.58 rho=0.855
+Opening File: data/catalogue/cifs/bcu__Co-N35__short-NH2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(15.542000 0 0)
+  vb=(-0.114485 15.617580 0)
+  vc=(-0.647688 -0.942994 12.948562)
+
+Total particles = 1720
+
+Internal grid size = (7 7 6)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 3142.984245
+  Total Voronoi volume = 3142.984245
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+bcu__Co-N35__short-NH2                        LCD=  7.13 PLD=  4.67 rho=1.006
+Opening File: data/catalogue/cifs/bcu__Co-N35__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(15.394000 0 0)
+  vb=(-0.114203 15.468578 0)
+  vc=(-0.645375 -0.939512 12.825451)
+
+Total particles = 1584
+
+Internal grid size = (7 7 6)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 3054.038583
+  Total Voronoi volume = 3054.038583
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+bcu__Co-N35__short-Nring1                     LCD=  7.10 PLD=  5.31 rho=0.975
+Opening File: data/catalogue/cifs/bcu__Fe-N350__long-F8.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 2.
+Box dimensions:
+  va=(18.184000 0 0)
+  vb=(0.606938 20.968218 0)
+  vc=(-1.084747 -0.072288 20.100622)
+
+Total particles = 2344
+
+Internal grid size = (6 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 7664.087120
+  Total Voronoi volume = 7664.087120
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+bcu__Fe-N350__long-F8                         LCD= 10.30 PLD=  7.40 rho=0.763
+Opening File: data/catalogue/cifs/bcu__Fe-N350__long-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(19.179000 0 0)
+  vb=(0.621268 22.117276 0)
+  vc=(-1.111619 -0.074433 21.203751)
+
+Total particles = 2344
+
+Internal grid size = (6 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 8994.360519
+  Total Voronoi volume = 8994.360519
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+bcu__Fe-N350__long-H                          LCD= 12.14 PLD=  9.00 rho=0.437
+Opening File: data/catalogue/cifs/bcu__Fe-N350__long-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(18.447000 0 0)
+  vb=(0.610879 21.271230 0)
+  vc=(-1.091585 -0.072772 20.392676)
+
+Total particles = 2336
+
+Internal grid size = (6 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 8001.889862
+  Total Voronoi volume = 8001.889862
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+bcu__Fe-N350__long-Nring1                     LCD= 11.60 PLD=  9.76 rho=0.493
+Opening File: data/catalogue/cifs/bcu__Fe-N350__long-Nring2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(19.179000 0 0)
+  vb=(0.621268 22.117276 0)
+  vc=(-1.111619 -0.074433 21.203751)
+
+Total particles = 2328
+
+Internal grid size = (6 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 8994.360519
+  Total Voronoi volume = 8994.360519
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+bcu__Fe-N350__long-Nring2                     LCD= 12.26 PLD=  9.59 rho=0.440
+Opening File: data/catalogue/cifs/bcu__Fe-N350__short-F4.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 2.
+Box dimensions:
+  va=(13.944000 0 0)
+  vb=(0.546879 16.070698 0)
+  vc=(-0.969915 -0.061060 15.403373)
+
+Total particles = 1592
+
+Internal grid size = (6 7 6)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 3451.738841
+  Total Voronoi volume = 3451.738841
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+bcu__Fe-N350__short-F4                        LCD=  7.73 PLD=  4.32 rho=1.123
+Opening File: data/catalogue/cifs/bcu__Fe-N350__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(14.284000 0 0)
+  vb=(0.551625 16.463761 0)
+  vc=(-0.979285 -0.061893 15.780522)
+
+Total particles = 1592
+
+Internal grid size = (6 7 6)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 3711.079715
+  Total Voronoi volume = 3711.079715
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+bcu__Fe-N350__short-H                         LCD=  7.36 PLD=  5.89 rho=0.787
+Opening File: data/catalogue/cifs/bcu__Fe-N350__short-NH2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(13.835000 0 0)
+  vb=(0.545411 15.945675 0)
+  vc=(-0.966909 -0.060797 15.283324)
+
+Total particles = 1720
+
+Internal grid size = (6 7 6)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 3371.629824
+  Total Voronoi volume = 3371.629824
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+bcu__Fe-N350__short-NH2                       LCD=  7.52 PLD=  6.00 rho=0.926
+Opening File: data/catalogue/cifs/bcu__Fe-N350__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(13.706000 0 0)
+  vb=(0.543350 15.796658 0)
+  vc=(-0.963493 -0.060389 15.141256)
+
+Total particles = 1584
+
+Internal grid size = (6 7 6)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 3278.218023
+  Total Voronoi volume = 3278.218023
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+bcu__Fe-N350__short-Nring1                    LCD=  7.41 PLD=  6.17 rho=0.895
+Opening File: data/catalogue/cifs/cds__Co-N317__long-F8.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 2.
+Box dimensions:
+  va=(14.712000 0 0)
+  vb=(0.000000 14.839000 0)
+  vc=(-0.105215 -0.105215 29.550625)
+
+Total particles = 1172
+
+Internal grid size = (5 5 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 6451.237452
+  Total Voronoi volume = 6451.237452
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Co-N317__long-F8                         LCD= 13.51 PLD= 10.35 rho=0.456
+Opening File: data/catalogue/cifs/cds__Co-N317__long-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(15.652000 0 0)
+  vb=(0.000000 15.778000 0)
+  vc=(-0.111905 -0.111905 31.429602)
+
+Total particles = 1172
+
+Internal grid size = (5 5 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 7761.768159
+  Total Voronoi volume = 7761.768159
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Co-N317__long-H                          LCD= 17.10 PLD= 12.45 rho=0.256
+Opening File: data/catalogue/cifs/cds__Co-N317__long-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(14.960000 0 0)
+  vb=(0.000000 15.087000 0)
+  vc=(-0.106981 -0.106981 30.046619)
+
+Total particles = 1168
+
+Internal grid size = (5 5 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 6781.567601
+  Total Voronoi volume = 6781.567601
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Co-N317__long-Nring1                     LCD= 15.70 PLD= 11.15 rho=0.294
+Opening File: data/catalogue/cifs/cds__Co-N317__long-Nring2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(15.652000 0 0)
+  vb=(0.000000 15.778000 0)
+  vc=(-0.111905 -0.111905 31.429602)
+
+Total particles = 1164
+
+Internal grid size = (5 5 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 7761.768159
+  Total Voronoi volume = 7761.768159
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Co-N317__long-Nring2                     LCD= 17.31 PLD= 12.45 rho=0.258
+Opening File: data/catalogue/cifs/cds__Co-N317__short-F4.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 2.
+Box dimensions:
+  va=(10.711000 0 0)
+  vb=(0.000000 10.837000 0)
+  vc=(-0.076721 -0.076721 21.547727)
+
+Total particles = 796
+
+Internal grid size = (4 4 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2501.154698
+  Total Voronoi volume = 2501.154698
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Co-N317__short-F4                        LCD=  8.67 PLD=  6.78 rho=0.783
+Opening File: data/catalogue/cifs/cds__Co-N317__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(11.032000 0 0)
+  vb=(0.000000 11.159000 0)
+  vc=(-0.079010 -0.079010 22.190719)
+
+Total particles = 796
+
+Internal grid size = (4 4 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2731.812567
+  Total Voronoi volume = 2731.812567
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Co-N317__short-H                         LCD= 10.77 PLD=  7.86 rho=0.542
+Opening File: data/catalogue/cifs/cds__Co-N317__short-NH2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(10.609000 0 0)
+  vb=(0.000000 10.735000 0)
+  vc=(-0.075995 -0.075995 21.343729)
+
+Total particles = 860
+
+Internal grid size = (4 4 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2430.786439
+  Total Voronoi volume = 2430.786439
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Co-N317__short-NH2                       LCD=  9.30 PLD=  7.35 rho=0.651
+Opening File: data/catalogue/cifs/cds__Co-N317__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(10.487000 0 0)
+  vb=(0.000000 10.614000 0)
+  vc=(-0.075129 -0.075129 21.100733)
+
+Total particles = 792
+
+Internal grid size = (4 4 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2348.701814
+  Total Voronoi volume = 2348.701814
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Co-N317__short-Nring1                    LCD=  9.88 PLD=  7.24 rho=0.634
+Opening File: data/catalogue/cifs/cds__Cu-N409__long-F8.cif
+Radii analysis: the smallest atom r = 1.4 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(14.952000 0 0)
+  vb=(0.028544 14.733972 0)
+  vc=(-1.582619 -1.579039 29.601698)
+
+Total particles = 1564
+
+Internal grid size = (5 5 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 6521.323858
+  Total Voronoi volume = 6521.323858
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Cu-N409__long-F8                         LCD= 13.80 PLD= 10.64 rho=0.456
+Opening File: data/catalogue/cifs/cds__Cu-N409__long-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(15.891000 0 0)
+  vb=(0.030365 15.673971 0)
+  vc=(-1.682793 -1.678985 31.475362)
+
+Total particles = 1172
+
+Internal grid size = (5 5 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 7839.728001
+  Total Voronoi volume = 7839.728001
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Cu-N409__long-H                          LCD= 16.84 PLD= 12.32 rho=0.257
+Opening File: data/catalogue/cifs/cds__Cu-N409__long-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(15.200000 0 0)
+  vb=(0.029025 14.981972 0)
+  vc=(-1.609062 -1.605422 30.096290)
+
+Total particles = 1168
+
+Internal grid size = (5 5 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 6853.706885
+  Total Voronoi volume = 6853.706885
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Cu-N409__long-Nring1                     LCD= 15.81 PLD= 11.28 rho=0.295
+Opening File: data/catalogue/cifs/cds__Cu-N409__long-Nring2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(15.891000 0 0)
+  vb=(0.030365 15.673971 0)
+  vc=(-1.682793 -1.678985 31.475362)
+
+Total particles = 1164
+
+Internal grid size = (5 5 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 7839.728001
+  Total Voronoi volume = 7839.728001
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Cu-N409__long-Nring2                     LCD= 17.08 PLD= 12.32 rho=0.259
+Opening File: data/catalogue/cifs/cds__Cu-N409__short-F4.cif
+Radii analysis: the smallest atom r = 1.4 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(10.951000 0 0)
+  vb=(0.020793 10.732980 0)
+  vc=(-1.155964 -1.153348 21.621425)
+
+Total particles = 964
+
+Internal grid size = (4 4 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2541.314471
+  Total Voronoi volume = 2541.314471
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Cu-N409__short-F4                        LCD=  9.00 PLD=  7.14 rho=0.783
+Opening File: data/catalogue/cifs/cds__Cu-N409__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(11.272000 0 0)
+  vb=(0.021415 11.053979 0)
+  vc=(-1.190243 -1.187550 22.262599)
+
+Total particles = 796
+
+Internal grid size = (4 4 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2773.929966
+  Total Voronoi volume = 2773.929966
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Cu-N409__short-H                         LCD= 10.56 PLD=  7.71 rho=0.545
+Opening File: data/catalogue/cifs/cds__Cu-N409__short-NH2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(10.848000 0 0)
+  vb=(0.020596 10.630980 0)
+  vc=(-1.145088 -1.142497 21.418004)
+
+Total particles = 860
+
+Internal grid size = (4 4 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2470.028612
+  Total Voronoi volume = 2470.028612
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Cu-N409__short-NH2                       LCD=  9.38 PLD=  7.25 rho=0.653
+Opening File: data/catalogue/cifs/cds__Cu-N409__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(10.727000 0 0)
+  vb=(0.020359 10.508980 0)
+  vc=(-1.132133 -1.129572 21.175695)
+
+Total particles = 792
+
+Internal grid size = (4 4 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2387.132473
+  Total Voronoi volume = 2387.132473
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Cu-N409__short-Nring1                    LCD=  9.80 PLD=  7.14 rho=0.636
+Opening File: data/catalogue/cifs/cds__Fe-N355__long-F8.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 2.
+Box dimensions:
+  va=(14.885000 0 0)
+  vb=(0.194064 14.648715 0)
+  vc=(-4.088526 -4.034721 28.971041)
+
+Total particles = 1172
+
+Internal grid size = (5 5 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 6317.022940
+  Total Voronoi volume = 6317.022940
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Fe-N355__long-F8                         LCD= 13.35 PLD=  9.37 rho=0.463
+Opening File: data/catalogue/cifs/cds__Fe-N355__long-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(15.824000 0 0)
+  vb=(0.206502 15.587632 0)
+  vc=(-4.348636 -4.291408 30.814162)
+
+Total particles = 1172
+
+Internal grid size = (5 5 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 7600.580899
+  Total Voronoi volume = 7600.580899
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Fe-N355__long-H                          LCD= 15.35 PLD= 12.16 rho=0.259
+Opening File: data/catalogue/cifs/cds__Fe-N355__long-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(15.133000 0 0)
+  vb=(0.197349 14.896693 0)
+  vc=(-4.157188 -4.102479 29.457570)
+
+Total particles = 1168
+
+Internal grid size = (5 5 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 6640.668656
+  Total Voronoi volume = 6640.668656
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Fe-N355__long-Nring1                     LCD= 15.08 PLD= 10.77 rho=0.297
+Opening File: data/catalogue/cifs/cds__Fe-N355__long-Nring2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(15.824000 0 0)
+  vb=(0.206502 15.587632 0)
+  vc=(-4.348636 -4.291408 30.814162)
+
+Total particles = 1164
+
+Internal grid size = (5 5 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 7600.580899
+  Total Voronoi volume = 7600.580899
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Fe-N355__long-Nring2                     LCD= 15.71 PLD= 12.18 rho=0.260
+Opening File: data/catalogue/cifs/cds__Fe-N355__short-F4.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 2.
+Box dimensions:
+  va=(10.883000 0 0)
+  vb=(0.141064 10.648066 0)
+  vc=(-2.980672 -2.941446 21.120855)
+
+Total particles = 796
+
+Internal grid size = (4 4 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2447.545886
+  Total Voronoi volume = 2447.545886
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Fe-N355__short-F4                        LCD=  8.52 PLD=  6.83 rho=0.792
+Opening File: data/catalogue/cifs/cds__Fe-N355__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(11.204000 0 0)
+  vb=(0.145316 10.969037 0)
+  vc=(-3.069544 -3.029149 21.750596)
+
+Total particles = 796
+
+Internal grid size = (4 4 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2673.085106
+  Total Voronoi volume = 2673.085106
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Fe-N355__short-H                         LCD=  9.94 PLD=  7.52 rho=0.547
+Opening File: data/catalogue/cifs/cds__Fe-N355__short-NH2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(10.781000 0 0)
+  vb=(0.139699 10.545075 0)
+  vc=(-2.952432 -2.913578 20.920750)
+
+Total particles = 860
+
+Internal grid size = (4 4 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2378.405827
+  Total Voronoi volume = 2378.405827
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Fe-N355__short-NH2                       LCD=  8.95 PLD=  7.04 rho=0.656
+Opening File: data/catalogue/cifs/cds__Fe-N355__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(10.660000 0 0)
+  vb=(0.138096 10.424085 0)
+  vc=(-2.918794 -2.880382 20.682390)
+
+Total particles = 792
+
+Internal grid size = (4 4 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2298.242698
+  Total Voronoi volume = 2298.242698
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Fe-N355__short-Nring1                    LCD=  9.11 PLD=  6.91 rho=0.639
+Opening File: data/catalogue/cifs/cds__Mn-N288__long-F8.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 2.
+Box dimensions:
+  va=(13.973000 0 0)
+  vb=(0.710238 18.804592 0)
+  vc=(-7.468021 -7.190725 31.110085)
+
+Total particles = 1172
+
+Internal grid size = (4 5 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 8174.379153
+  Total Voronoi volume = 8174.379153
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Mn-N288__long-F8                         LCD= 14.91 PLD= 12.10 rho=0.357
+Opening File: data/catalogue/cifs/cds__Mn-N288__long-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(14.913000 0 0)
+  vb=(0.744338 19.743974 0)
+  vc=(-7.895943 -7.603879 32.892451)
+
+Total particles = 1172
+
+Internal grid size = (4 5 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 9684.915577
+  Total Voronoi volume = 9684.915577
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Mn-N288__long-H                          LCD= 18.12 PLD= 15.87 rho=0.202
+Opening File: data/catalogue/cifs/cds__Mn-N288__long-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(14.221000 0 0)
+  vb=(0.719266 19.052428 0)
+  vc=(-7.580979 -7.299617 31.580616)
+
+Total particles = 1168
+
+Internal grid size = (4 5 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 8556.596607
+  Total Voronoi volume = 8556.596607
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Mn-N288__long-Nring1                     LCD= 17.16 PLD= 15.03 rho=0.230
+Opening File: data/catalogue/cifs/cds__Mn-N288__long-Nring2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(14.913000 0 0)
+  vb=(0.744338 19.743974 0)
+  vc=(-7.895943 -7.603879 32.892451)
+
+Total particles = 1164
+
+Internal grid size = (4 5 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 9684.915577
+  Total Voronoi volume = 9684.915577
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Mn-N288__long-Nring2                     LCD= 18.29 PLD= 15.90 rho=0.204
+Opening File: data/catalogue/cifs/cds__Mn-N288__short-F4.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 2.
+Box dimensions:
+  va=(9.972000 0 0)
+  vb=(0.564399 14.806247 0)
+  vc=(-5.645846 -5.433889 23.517904)
+
+Total particles = 796
+
+Internal grid size = (4 5 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 3472.368907
+  Total Voronoi volume = 3472.368907
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Mn-N288__short-F4                        LCD= 10.62 PLD=  8.49 rho=0.557
+Opening File: data/catalogue/cifs/cds__Mn-N288__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(10.293000 0 0)
+  vb=(0.576098 15.127034 0)
+  vc=(-5.791633 -5.574831 24.127039)
+
+Total particles = 796
+
+Internal grid size = (4 5 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 3756.641732
+  Total Voronoi volume = 3756.641732
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Mn-N288__short-H                         LCD= 12.52 PLD= 11.30 rho=0.387
+Opening File: data/catalogue/cifs/cds__Mn-N288__short-NH2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(9.870000 0 0)
+  vb=(0.560514 14.704321 0)
+  vc=(-5.599384 -5.389171 23.324364)
+
+Total particles = 860
+
+Internal grid size = (4 5 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 3385.103347
+  Total Voronoi volume = 3385.103347
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Mn-N288__short-NH2                       LCD= 11.48 PLD= 10.85 rho=0.459
+Opening File: data/catalogue/cifs/cds__Mn-N288__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(9.748000 0 0)
+  vb=(0.556121 14.582400 0)
+  vc=(-5.544039 -5.335811 23.093846)
+
+Total particles = 792
+
+Internal grid size = (4 5 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 3282.772432
+  Total Voronoi volume = 3282.772432
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Mn-N288__short-Nring1                    LCD= 12.04 PLD= 10.76 rho=0.445
+Opening File: data/catalogue/cifs/cds__Zn-N153__long-F8.cif
+Radii analysis: the smallest atom r = 1.39 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(14.700000 0 0)
+  vb=(0.115406 14.468540 0)
+  vc=(-3.145172 -3.120185 28.830590)
+
+Total particles = 1564
+
+Internal grid size = (5 5 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 6131.907024
+  Total Voronoi volume = 6131.907024
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Zn-N153__long-F8                         LCD= 13.40 PLD=  9.94 rho=0.487
+Opening File: data/catalogue/cifs/cds__Zn-N153__long-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(15.639000 0 0)
+  vb=(0.122903 15.408510 0)
+  vc=(-3.347777 -3.321180 30.687790)
+
+Total particles = 1172
+
+Internal grid size = (5 5 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 7394.949863
+  Total Voronoi volume = 7394.949863
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Zn-N153__long-H                          LCD= 16.12 PLD= 12.01 rho=0.274
+Opening File: data/catalogue/cifs/cds__Zn-N153__long-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(14.948000 0 0)
+  vb=(0.117392 14.717532 0)
+  vc=(-3.198654 -3.173242 29.320835)
+
+Total particles = 1168
+
+Internal grid size = (5 5 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 6450.515301
+  Total Voronoi volume = 6450.515301
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Zn-N153__long-Nring1                     LCD= 15.51 PLD= 11.31 rho=0.316
+Opening File: data/catalogue/cifs/cds__Zn-N153__long-Nring2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(15.639000 0 0)
+  vb=(0.122903 15.408510 0)
+  vc=(-3.347777 -3.321180 30.687790)
+
+Total particles = 1164
+
+Internal grid size = (5 5 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 7394.949863
+  Total Voronoi volume = 7394.949863
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Zn-N153__long-Nring2                     LCD= 16.41 PLD= 12.03 rho=0.276
+Opening File: data/catalogue/cifs/cds__Zn-N153__short-F4.cif
+Radii analysis: the smallest atom r = 1.39 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(10.698000 0 0)
+  vb=(0.083494 10.467667 0)
+  vc=(-2.282242 -2.264110 20.920438)
+
+Total particles = 964
+
+Internal grid size = (4 4 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2342.735554
+  Total Voronoi volume = 2342.735554
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Zn-N153__short-F4                        LCD=  8.76 PLD=  6.81 rho=0.855
+Opening File: data/catalogue/cifs/cds__Zn-N153__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(11.020000 0 0)
+  vb=(0.086054 10.788657 0)
+  vc=(-2.351574 -2.332892 21.555978)
+
+Total particles = 796
+
+Internal grid size = (4 4 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2562.811767
+  Total Voronoi volume = 2562.811767
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Zn-N153__short-H                         LCD= 10.02 PLD=  7.33 rho=0.595
+Opening File: data/catalogue/cifs/cds__Zn-N153__short-NH2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(10.596000 0 0)
+  vb=(0.082680 10.365670 0)
+  vc=(-2.260245 -2.242289 20.718805)
+
+Total particles = 860
+
+Internal grid size = (4 4 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2275.642521
+  Total Voronoi volume = 2275.642521
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Zn-N153__short-NH2                       LCD=  9.02 PLD=  6.89 rho=0.714
+Opening File: data/catalogue/cifs/cds__Zn-N153__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(10.475000 0 0)
+  vb=(0.081707 10.243674 0)
+  vc=(-2.234044 -2.216295 20.478624)
+
+Total particles = 792
+
+Internal grid size = (4 4 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2197.407291
+  Total Voronoi volume = 2197.407291
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+cds__Zn-N153__short-Nring1                    LCD=  8.88 PLD=  6.94 rho=0.697
+Opening File: data/catalogue/cifs/dia__Co-N398__long-F8.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 2.
+Box dimensions:
+  va=(32.742000 0 0)
+  vb=(2.097218 37.759804 0)
+  vc=(-2.097163 0.113173 37.758636)
+
+Total particles = 4688
+
+Internal grid size = (8 9 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 46682.191164
+  Total Voronoi volume = 46682.191164
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+dia__Co-N398__long-F8                         LCD= 21.80 PLD= 17.71 rho=0.252
+Opening File: data/catalogue/cifs/dia__Co-N398__short-F4.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 2.
+Box dimensions:
+  va=(24.397000 0 0)
+  vb=(1.799530 28.109457 0)
+  vc=(-1.799530 0.110277 28.109241)
+
+Total particles = 3184
+
+Internal grid size = (7 8 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 19276.935833
+  Total Voronoi volume = 19276.935833
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+dia__Co-N398__short-F4                        LCD= 15.74 PLD= 12.43 rho=0.407
+Opening File: data/catalogue/cifs/dia__Co-N398__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(25.066000 0 0)
+  vb=(1.823774 28.883478 0)
+  vc=(-1.823774 0.110602 28.883267)
+
+Total particles = 3184
+
+Internal grid size = (7 8 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 20911.290778
+  Total Voronoi volume = 20911.290778
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+dia__Co-N398__short-H                         LCD= 15.94 PLD= 12.98 rho=0.283
+Opening File: data/catalogue/cifs/dia__Co-N398__short-NH2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(24.184000 0 0)
+  vb=(1.791594 27.863461 0)
+  vc=(-1.791594 0.109338 27.863246)
+
+Total particles = 3440
+
+Internal grid size = (7 8 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 18775.646318
+  Total Voronoi volume = 18775.646318
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+dia__Co-N398__short-NH2                       LCD= 15.55 PLD= 12.52 rho=0.337
+Opening File: data/catalogue/cifs/dia__Co-N398__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(23.930000 0 0)
+  vb=(1.784278 27.569321 0)
+  vc=(-1.784278 0.111129 27.569097)
+
+Total particles = 3168
+
+Internal grid size = (7 8 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 18188.267090
+  Total Voronoi volume = 18188.267090
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+dia__Co-N398__short-Nring1                    LCD= 15.25 PLD= 13.07 rho=0.327
+Opening File: data/catalogue/cifs/dia__Ni-N649__long-F8.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(37.898000 0 0)
+  vb=(1.924263 32.456007 0)
+  vc=(-1.924322 -0.440713 32.454013)
+
+Total particles = 4688
+
+Internal grid size = (10 8 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 39919.011851
+  Total Voronoi volume = 39919.011851
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+dia__Ni-N649__long-F8                         LCD= 20.00 PLD= 16.07 rho=0.295
+Opening File: data/catalogue/cifs/dia__Ni-N649__short-F4.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(27.728000 0 0)
+  vb=(1.675511 23.722904 0)
+  vc=(-1.675511 -0.342264 23.720435)
+
+Total particles = 3184
+
+Internal grid size = (8 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 15603.033967
+  Total Voronoi volume = 15603.033967
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+dia__Ni-N649__short-F4                        LCD= 13.62 PLD= 11.11 rho=0.502
+Opening File: data/catalogue/cifs/dia__Ni-N649__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(28.542000 0 0)
+  vb=(1.695486 24.424222 0)
+  vc=(-1.695486 -0.351731 24.421689)
+
+Total particles = 3184
+
+Internal grid size = (8 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 17024.753747
+  Total Voronoi volume = 17024.753747
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+dia__Ni-N649__short-H                         LCD= 14.93 PLD= 11.78 rho=0.348
+Opening File: data/catalogue/cifs/dia__Ni-N649__short-NH2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(27.468000 0 0)
+  vb=(1.669233 23.499790 0)
+  vc=(-1.669233 -0.341438 23.497310)
+
+Total particles = 3440
+
+Internal grid size = (9 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 15167.331023
+  Total Voronoi volume = 15167.331023
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+dia__Ni-N649__short-NH2                       LCD= 13.99 PLD= 11.10 rho=0.417
+Opening File: data/catalogue/cifs/dia__Ni-N649__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(27.159000 0 0)
+  vb=(1.661812 23.234647 0)
+  vc=(-1.661812 -0.338028 23.232188)
+
+Total particles = 3168
+
+Internal grid size = (8 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 14660.202323
+  Total Voronoi volume = 14660.202323
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+dia__Ni-N649__short-Nring1                    LCD= 14.16 PLD= 11.75 rho=0.406
+Opening File: data/catalogue/cifs/dia__Zn-N256__long-F8.cif
+Radii analysis: the smallest atom r = 1.39 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(35.344000 0 0)
+  vb=(2.294570 35.074024 0)
+  vc=(-2.295312 -1.264756 35.053170)
+
+Total particles = 6256
+
+Internal grid size = (10 9 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 43453.883189
+  Total Voronoi volume = 43453.883189
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+dia__Zn-N256__long-F8                         LCD= 21.89 PLD= 17.33 rho=0.275
+Opening File: data/catalogue/cifs/dia__Zn-N256__short-F4.cif
+Radii analysis: the smallest atom r = 1.39 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(26.083000 0 0)
+  vb=(1.976690 25.854547 0)
+  vc=(-1.976690 -1.064841 25.832609)
+
+Total particles = 3856
+
+Internal grid size = (8 8 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 17420.585668
+  Total Voronoi volume = 17420.585668
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+dia__Zn-N256__short-F4                        LCD= 14.29 PLD= 11.54 rho=0.460
+Opening File: data/catalogue/cifs/dia__Zn-N256__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(26.826000 0 0)
+  vb=(2.002003 26.594753 0)
+  vc=(-2.002003 -1.081666 26.572747)
+
+Total particles = 3184
+
+Internal grid size = (8 8 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 18957.817233
+  Total Voronoi volume = 18957.817233
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+dia__Zn-N256__short-H                         LCD= 15.47 PLD= 12.94 rho=0.322
+Opening File: data/catalogue/cifs/dia__Zn-N256__short-NH2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(25.847000 0 0)
+  vb=(1.968536 25.618480 0)
+  vc=(-1.968536 -1.059513 25.596561)
+
+Total particles = 3440
+
+Internal grid size = (8 8 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 16949.040448
+  Total Voronoi volume = 16949.040448
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+dia__Zn-N256__short-NH2                       LCD= 14.56 PLD= 11.92 rho=0.383
+Opening File: data/catalogue/cifs/dia__Zn-N256__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(25.565000 0 0)
+  vb=(1.959102 25.339379 0)
+  vc=(-1.959102 -1.052427 25.317515)
+
+Total particles = 3168
+
+Internal grid size = (8 8 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 16400.717145
+  Total Voronoi volume = 16400.717145
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+dia__Zn-N256__short-Nring1                    LCD= 15.17 PLD= 12.37 rho=0.373
+Opening File: data/catalogue/cifs/nbo__Co-N317__long-F8.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 2.
+Box dimensions:
+  va=(29.425000 0 0)
+  vb=(0.105215 29.550813 0)
+  vc=(-0.105664 -0.105288 29.676625)
+
+Total particles = 3516
+
+Internal grid size = (8 8 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 25804.794883
+  Total Voronoi volume = 25804.794883
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Co-N317__long-F8                         LCD= 22.64 PLD= 13.81 rho=0.342
+Opening File: data/catalogue/cifs/nbo__Co-N317__long-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(29.921000 0 0)
+  vb=(0.106981 30.046810 0)
+  vc=(-0.107430 -0.107048 30.172619)
+
+Total particles = 3504
+
+Internal grid size = (8 8 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 27126.107285
+  Total Voronoi volume = 27126.107285
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Co-N317__long-Nring1                     LCD= 23.13 PLD= 16.30 rho=0.220
+Opening File: data/catalogue/cifs/nbo__Co-N317__short-F4.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 2.
+Box dimensions:
+  va=(21.422000 0 0)
+  vb=(0.076721 21.547863 0)
+  vc=(-0.077173 -0.076899 21.674726)
+
+Total particles = 2388
+
+Internal grid size = (7 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 10005.017421
+  Total Voronoi volume = 10005.017421
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Co-N317__short-F4                        LCD= 14.64 PLD=  9.51 rho=0.588
+Opening File: data/catalogue/cifs/nbo__Co-N317__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(22.064000 0 0)
+  vb=(0.079007 22.189859 0)
+  vc=(-0.079459 -0.079176 22.316718)
+
+Total particles = 2388
+
+Internal grid size = (7 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 10926.199492
+  Total Voronoi volume = 10926.199492
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Co-N317__short-H                         LCD= 15.28 PLD= 10.69 rho=0.407
+Opening File: data/catalogue/cifs/nbo__Co-N317__short-NH2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(21.218000 0 0)
+  vb=(0.075995 21.343865 0)
+  vc=(-0.076443 -0.076171 21.469729)
+
+Total particles = 2580
+
+Internal grid size = (7 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 9723.084564
+  Total Voronoi volume = 9723.084564
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Co-N317__short-NH2                       LCD= 14.43 PLD=  9.95 rho=0.488
+Opening File: data/catalogue/cifs/nbo__Co-N317__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(20.975000 0 0)
+  vb=(0.075129 21.100866 0)
+  vc=(-0.075578 -0.075309 21.226732)
+
+Total particles = 2376
+
+Internal grid size = (7 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 9394.753468
+  Total Voronoi volume = 9394.753468
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Co-N317__short-Nring1                    LCD= 14.19 PLD= 10.06 rho=0.475
+Opening File: data/catalogue/cifs/nbo__Cu-N409__long-F8.cif
+Radii analysis: the smallest atom r = 1.4 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(29.904000 0 0)
+  vb=(1.570484 29.426121 0)
+  vc=(-1.583654 -1.498797 29.605814)
+
+Total particles = 4692
+
+Internal grid size = (9 9 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 26051.894683
+  Total Voronoi volume = 26051.894683
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Cu-N409__long-F8                         LCD= 23.62 PLD= 13.99 rho=0.342
+Opening File: data/catalogue/cifs/nbo__Cu-N409__long-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(30.400000 0 0)
+  vb=(1.596918 29.921416 0)
+  vc=(-1.610114 -1.523839 30.100475)
+
+Total particles = 3504
+
+Internal grid size = (8 8 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 27379.724400
+  Total Voronoi volume = 27379.724400
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Cu-N409__long-Nring1                     LCD= 24.51 PLD= 16.01 rho=0.222
+Opening File: data/catalogue/cifs/nbo__Cu-N409__short-F4.cif
+Radii analysis: the smallest atom r = 1.4 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(21.901000 0 0)
+  vb=(1.143967 21.434495 0)
+  vc=(-1.156719 -1.094360 21.624451)
+
+Total particles = 2892
+
+Internal grid size = (8 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 10151.314385
+  Total Voronoi volume = 10151.314385
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Cu-N409__short-F4                        LCD= 15.67 PLD=  9.60 rho=0.588
+Opening File: data/catalogue/cifs/nbo__Cu-N409__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(22.543000 0 0)
+  vb=(1.178236 22.076581 0)
+  vc=(-1.191021 -1.126813 22.265714)
+
+Total particles = 2388
+
+Internal grid size = (7 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 11081.030686
+  Total Voronoi volume = 11081.030686
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Cu-N409__short-H                         LCD= 16.66 PLD= 10.49 rho=0.409
+Opening File: data/catalogue/cifs/nbo__Cu-N409__short-NH2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(21.697000 0 0)
+  vb=(1.133095 21.230785 0)
+  vc=(-1.145837 -1.084064 21.421001)
+
+Total particles = 2580
+
+Internal grid size = (7 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 9867.462957
+  Total Voronoi volume = 9867.462957
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Cu-N409__short-NH2                       LCD= 15.58 PLD=  9.50 rho=0.490
+Opening File: data/catalogue/cifs/nbo__Cu-N409__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(21.454000 0 0)
+  vb=(1.120145 20.988130 0)
+  vc=(-1.132873 -1.071800 21.178658)
+
+Total particles = 2376
+
+Internal grid size = (7 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 9536.311987
+  Total Voronoi volume = 9536.311987
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Cu-N409__short-Nring1                    LCD= 15.57 PLD=  9.71 rho=0.478
+Opening File: data/catalogue/cifs/nbo__Fe-N355__long-F8.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 2.
+Box dimensions:
+  va=(29.770000 0 0)
+  vb=(4.056502 29.017836 0)
+  vc=(-4.090058 -3.555488 29.033535)
+
+Total particles = 3516
+
+Internal grid size = (8 8 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 25080.937733
+  Total Voronoi volume = 25080.937733
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Fe-N355__long-F8                         LCD= 22.17 PLD= 13.45 rho=0.350
+Opening File: data/catalogue/cifs/nbo__Fe-N355__long-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(30.265000 0 0)
+  vb=(4.124657 29.509131 0)
+  vc=(-4.158745 -3.615262 29.521106)
+
+Total particles = 3504
+
+Internal grid size = (8 8 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 26365.118175
+  Total Voronoi volume = 26365.118175
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Fe-N355__long-Nring1                     LCD= 22.94 PLD= 15.61 rho=0.225
+Opening File: data/catalogue/cifs/nbo__Fe-N355__short-F4.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 2.
+Box dimensions:
+  va=(21.766000 0 0)
+  vb=(2.948279 21.092948 0)
+  vc=(-2.982533 -2.590884 21.166456)
+
+Total particles = 2388
+
+Internal grid size = (7 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 9717.712470
+  Total Voronoi volume = 9717.712470
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Fe-N355__short-F4                        LCD= 14.44 PLD=  8.95 rho=0.599
+Opening File: data/catalogue/cifs/nbo__Fe-N355__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(22.409000 0 0)
+  vb=(3.037013 21.727777 0)
+  vc=(-3.070694 -2.669402 21.797509)
+
+Total particles = 2388
+
+Internal grid size = (7 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 10613.158066
+  Total Voronoi volume = 10613.158066
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Fe-N355__short-H                         LCD= 15.09 PLD=  9.67 rho=0.413
+Opening File: data/catalogue/cifs/nbo__Fe-N355__short-NH2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(21.562000 0 0)
+  vb=(2.919901 20.889922 0)
+  vc=(-2.953768 -2.567013 20.964890)
+
+Total particles = 2580
+
+Internal grid size = (7 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 9443.183888
+  Total Voronoi volume = 9443.183888
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Fe-N355__short-NH2                       LCD= 14.25 PLD=  9.24 rho=0.496
+Opening File: data/catalogue/cifs/nbo__Fe-N355__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(21.319000 0 0)
+  vb=(2.886623 20.649211 0)
+  vc=(-2.919523 -2.538678 20.727005)
+
+Total particles = 2376
+
+Internal grid size = (7 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 9124.452920
+  Total Voronoi volume = 9124.452920
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Fe-N355__short-Nring1                    LCD= 14.00 PLD=  9.50 rho=0.483
+Opening File: data/catalogue/cifs/nbo__Zn-N153__long-F8.cif
+Radii analysis: the smallest atom r = 1.39 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(29.400000 0 0)
+  vb=(3.120372 28.770280 0)
+  vc=(-3.149221 -2.817985 28.861253)
+
+Total particles = 4692
+
+Internal grid size = (9 9 9)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 24412.181988
+  Total Voronoi volume = 24412.181988
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Zn-N153__long-F8                         LCD= 22.25 PLD= 12.92 rho=0.367
+Opening File: data/catalogue/cifs/nbo__Zn-N153__long-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(31.278000 0 0)
+  vb=(3.322869 30.637331 0)
+  vc=(-3.348315 -3.003715 30.720429)
+
+Total particles = 3516
+
+Internal grid size = (8 8 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 29438.601922
+  Total Voronoi volume = 29438.601922
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Zn-N153__long-H                          LCD= 24.72 PLD= 15.80 rho=0.207
+Opening File: data/catalogue/cifs/nbo__Zn-N153__long-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(29.896000 0 0)
+  vb=(3.173854 29.263388 0)
+  vc=(-3.202771 -2.865903 29.352020)
+
+Total particles = 3504
+
+Internal grid size = (8 8 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 25678.856826
+  Total Voronoi volume = 25678.856826
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Zn-N153__long-Nring1                     LCD= 23.65 PLD= 15.55 rho=0.238
+Opening File: data/catalogue/cifs/nbo__Zn-N153__long-Nring2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(31.278000 0 0)
+  vb=(3.322869 30.637331 0)
+  vc=(-3.348315 -3.003715 30.720429)
+
+Total particles = 3492
+
+Internal grid size = (8 8 8)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 29438.601922
+  Total Voronoi volume = 29438.601922
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Zn-N153__long-Nring2                     LCD= 24.72 PLD= 16.15 rho=0.208
+Opening File: data/catalogue/cifs/nbo__Zn-N153__short-F4.cif
+Radii analysis: the smallest atom r = 1.39 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(21.397000 0 0)
+  vb=(2.257442 20.813939 0)
+  vc=(-2.282609 -2.048058 20.942653)
+
+Total particles = 2892
+
+Internal grid size = (8 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 9326.932990
+  Total Voronoi volume = 9326.932990
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Zn-N153__short-F4                        LCD= 14.41 PLD=  8.91 rho=0.644
+Opening File: data/catalogue/cifs/nbo__Zn-N153__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(22.039000 0 0)
+  vb=(2.326666 21.452196 0)
+  vc=(-2.351574 -2.110317 21.578905)
+
+Total particles = 2388
+
+Internal grid size = (7 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 10202.181461
+  Total Voronoi volume = 10202.181461
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Zn-N153__short-H                         LCD= 15.80 PLD=  9.58 rho=0.448
+Opening File: data/catalogue/cifs/nbo__Zn-N153__short-NH2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(21.193000 0 0)
+  vb=(2.235338 20.610134 0)
+  vc=(-2.260609 -2.028319 20.740806)
+
+Total particles = 2580
+
+Internal grid size = (7 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 9059.388305
+  Total Voronoi volume = 9059.388305
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Zn-N153__short-NH2                       LCD= 14.78 PLD=  8.77 rho=0.538
+Opening File: data/catalogue/cifs/nbo__Zn-N153__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(20.950000 0 0)
+  vb=(2.209136 20.368551 0)
+  vc=(-2.234044 -2.004845 20.500405)
+
+Total particles = 2376
+
+Internal grid size = (7 7 7)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 8747.956219
+  Total Voronoi volume = 8747.956219
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+nbo__Zn-N153__short-Nring1                    LCD= 14.71 PLD=  9.37 rho=0.525
+Opening File: data/catalogue/cifs/pcu__Co-N491__long-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(16.606000 0 0)
+  vb=(2.363757 15.984168 0)
+  vc=(-4.296073 -2.754836 15.708785)
+
+Total particles = 879
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 4169.631314
+  Total Voronoi volume = 4169.631314
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Co-N491__long-H                          LCD= 15.14 PLD= 11.29 rho=0.357
+Opening File: data/catalogue/cifs/pcu__Co-N491__long-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(15.915000 0 0)
+  vb=(2.262671 15.300602 0)
+  vc=(-4.116344 -2.639585 15.051597)
+
+Total particles = 876
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 3665.200518
+  Total Voronoi volume = 3665.200518
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Co-N491__long-Nring1                     LCD= 14.11 PLD= 10.97 rho=0.408
+Opening File: data/catalogue/cifs/pcu__Co-N491__long-Nring2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(16.606000 0 0)
+  vb=(2.363757 15.984168 0)
+  vc=(-4.296073 -2.754836 15.708785)
+
+Total particles = 873
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 4169.631314
+  Total Voronoi volume = 4169.631314
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Co-N491__long-Nring2                     LCD= 15.42 PLD= 11.29 rho=0.360
+Opening File: data/catalogue/cifs/pcu__Co-N491__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(11.987000 0 0)
+  vb=(1.687897 11.413871 0)
+  vc=(-3.094671 -1.984442 11.315803)
+
+Total particles = 597
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 1548.206384
+  Total Voronoi volume = 1548.206384
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Co-N491__short-H                         LCD=  8.09 PLD=  6.09 rho=0.718
+Opening File: data/catalogue/cifs/pcu__Co-N491__short-NH2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(11.563000 0 0)
+  vb=(1.626016 10.995422 0)
+  vc=(-2.984388 -1.913724 10.912551)
+
+Total particles = 645
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 1387.422354
+  Total Voronoi volume = 1387.422354
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Co-N491__short-NH2                       LCD=  8.39 PLD=  5.52 rho=0.855
+Opening File: data/catalogue/cifs/pcu__Co-N491__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(11.442000 0 0)
+  vb=(1.608315 10.875723 0)
+  vc=(-2.952916 -1.893543 10.797471)
+
+Total particles = 594
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 1343.637646
+  Total Voronoi volume = 1343.637646
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Co-N491__short-Nring1                    LCD=  8.50 PLD=  5.37 rho=0.831
+Opening File: data/catalogue/cifs/pcu__Fe-N334__long-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(16.551000 0 0)
+  vb=(2.999021 16.170244 0)
+  vc=(-2.194389 -2.627105 16.528267)
+
+Total particles = 879
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 4423.521438
+  Total Voronoi volume = 4423.521438
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Fe-N334__long-H                          LCD= 15.33 PLD= 12.73 rho=0.333
+Opening File: data/catalogue/cifs/pcu__Fe-N334__long-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(15.861000 0 0)
+  vb=(2.872831 15.489847 0)
+  vc=(-2.104554 -2.519555 15.851626)
+
+Total particles = 876
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 3894.498138
+  Total Voronoi volume = 3894.498138
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Fe-N334__long-Nring1                     LCD= 15.58 PLD= 10.89 rho=0.380
+Opening File: data/catalogue/cifs/pcu__Fe-N334__long-Nring2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(16.551000 0 0)
+  vb=(2.999021 16.170244 0)
+  vc=(-2.194389 -2.627105 16.528267)
+
+Total particles = 873
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 4423.521438
+  Total Voronoi volume = 4423.521438
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Fe-N334__long-Nring2                     LCD= 15.60 PLD= 12.79 rho=0.336
+Opening File: data/catalogue/cifs/pcu__Fe-N334__short-F4.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 2.
+Box dimensions:
+  va=(11.620000 0 0)
+  vb=(2.097987 11.313111 0)
+  vc=(-1.552154 -1.858247 11.690913)
+
+Total particles = 597
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 1536.868219
+  Total Voronoi volume = 1536.868219
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Fe-N334__short-F4                        LCD=  8.03 PLD=  5.67 rho=0.946
+Opening File: data/catalogue/cifs/pcu__Fe-N334__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(11.940000 0 0)
+  vb=(2.156517 11.628730 0)
+  vc=(-1.593886 -1.908210 12.005243)
+
+Total particles = 597
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 1666.892428
+  Total Voronoi volume = 1666.892428
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Fe-N334__short-H                         LCD=  9.57 PLD=  8.29 rho=0.657
+Opening File: data/catalogue/cifs/pcu__Mg-N406__long-F8.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 1.73.
+Box dimensions:
+  va=(15.395000 0 0)
+  vb=(2.768674 15.409243 0)
+  vc=(-2.399080 -1.535081 15.236074)
+
+Total particles = 879
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 3614.382185
+  Total Voronoi volume = 3614.382185
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Mg-N406__long-F8                         LCD= 13.24 PLD=  9.52 rho=0.563
+Opening File: data/catalogue/cifs/pcu__Mg-N406__long-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.73.
+Box dimensions:
+  va=(16.335000 0 0)
+  vb=(2.934730 16.333444 0)
+  vc=(-2.544108 -1.627879 16.157119)
+
+Total particles = 879
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 4310.829237
+  Total Voronoi volume = 4310.829237
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Mg-N406__long-H                          LCD= 16.32 PLD= 12.37 rho=0.306
+Opening File: data/catalogue/cifs/pcu__Mg-N406__long-Nring2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.73.
+Box dimensions:
+  va=(16.335000 0 0)
+  vb=(2.934730 16.333444 0)
+  vc=(-2.544108 -1.627879 16.157119)
+
+Total particles = 873
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 4310.829237
+  Total Voronoi volume = 4310.829237
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Mg-N406__long-Nring2                     LCD= 16.49 PLD= 12.37 rho=0.308
+Opening File: data/catalogue/cifs/pcu__Mg-N406__short-F4.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 1.73.
+Box dimensions:
+  va=(11.395000 0 0)
+  vb=(2.061120 11.471304 0)
+  vc=(-1.781510 -1.139921 11.314013)
+
+Total particles = 597
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 1478.916996
+  Total Voronoi volume = 1478.916996
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Mg-N406__short-F4                        LCD=  8.43 PLD=  7.43 rho=0.877
+Opening File: data/catalogue/cifs/pcu__Mg-N406__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.73.
+Box dimensions:
+  va=(11.716000 0 0)
+  vb=(2.117887 11.787244 0)
+  vc=(-1.831040 -1.171613 11.628565)
+
+Total particles = 597
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 1605.897285
+  Total Voronoi volume = 1605.897285
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Mg-N406__short-H                         LCD=  9.67 PLD=  6.77 rho=0.584
+Opening File: data/catalogue/cifs/pcu__Mg-N406__short-NH2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.73.
+Box dimensions:
+  va=(11.293000 0 0)
+  vb=(2.043082 11.370911 0)
+  vc=(-1.765723 -1.129820 11.213750)
+
+Total particles = 645
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 1439.976760
+  Total Voronoi volume = 1439.976760
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Mg-N406__short-NH2                       LCD=  8.48 PLD=  5.92 rho=0.704
+Opening File: data/catalogue/cifs/pcu__Mg-N406__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.73.
+Box dimensions:
+  va=(11.171000 0 0)
+  vb=(2.021507 11.250834 0)
+  vc=(-1.746840 -1.117737 11.093828)
+
+Total particles = 594
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 1394.306306
+  Total Voronoi volume = 1394.306306
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Mg-N406__short-Nring1                    LCD=  8.98 PLD=  6.00 rho=0.677
+Opening File: data/catalogue/cifs/pcu__Mn-N548__long-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(16.161000 0 0)
+  vb=(4.831726 16.412566 0)
+  vc=(-0.773686 -3.144443 16.353475)
+
+Total particles = 879
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 4337.652372
+  Total Voronoi volume = 4337.652372
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Mn-N548__long-H                          LCD= 15.14 PLD= 12.97 rho=0.339
+Opening File: data/catalogue/cifs/pcu__Mn-N548__long-Nring2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(16.161000 0 0)
+  vb=(4.831726 16.412566 0)
+  vc=(-0.773686 -3.144443 16.353475)
+
+Total particles = 873
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 4337.652372
+  Total Voronoi volume = 4337.652372
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Mn-N548__long-Nring2                     LCD= 15.39 PLD= 12.97 rho=0.341
+Opening File: data/catalogue/cifs/pcu__Mn-N548__short-F4.cif
+Radii analysis: the smallest atom r = 1.47 while the largest atoms r = 2.
+Box dimensions:
+  va=(11.220000 0 0)
+  vb=(3.436628 11.673652 0)
+  vc=(-0.544379 -2.212483 11.506584)
+
+Total particles = 597
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 1507.113625
+  Total Voronoi volume = 1507.113625
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Mn-N548__short-F4                        LCD=  8.64 PLD=  4.69 rho=0.962
+Opening File: data/catalogue/cifs/pcu__Mn-N548__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(11.541000 0 0)
+  vb=(3.527281 11.981585 0)
+  vc=(-0.559276 -2.273030 11.821470)
+
+Total particles = 597
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 1634.666647
+  Total Voronoi volume = 1634.666647
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Mn-N548__short-H                         LCD=  9.61 PLD=  8.39 rho=0.668
+Opening File: data/catalogue/cifs/pcu__Mn-N548__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 2.
+Box dimensions:
+  va=(10.996000 0 0)
+  vb=(3.373369 11.458770 0)
+  vc=(-0.533983 -2.170233 11.286850)
+
+Total particles = 594
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 1422.150279
+  Total Voronoi volume = 1422.150279
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Mn-N548__short-Nring1                    LCD=  8.55 PLD=  7.45 rho=0.771
+Opening File: data/catalogue/cifs/pcu__Zn-N16__long-F8.cif
+Radii analysis: the smallest atom r = 1.39 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(16.926000 0 0)
+  vb=(0.000000 16.926000 0)
+  vc=(0.000000 0.000000 16.926000)
+
+Total particles = 1189
+
+Internal grid size = (6 6 6)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 4849.120871
+  Total Voronoi volume = 4849.120871
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Zn-N16__long-F8                          LCD= 16.50 PLD= 10.05 rho=0.490
+Opening File: data/catalogue/cifs/pcu__Zn-N16__long-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(17.865000 0 0)
+  vb=(0.000000 17.865000 0)
+  vc=(0.000000 0.000000 17.865000)
+
+Total particles = 909
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Order 4 vertex memory scaled up to 16
+Volume check:
+  Total domain volume  = 5701.761690
+  Total Voronoi volume = 5701.761690
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Zn-N16__long-H                           LCD= 19.50 PLD= 14.54 rho=0.291
+Opening File: data/catalogue/cifs/pcu__Zn-N16__long-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(17.174000 0 0)
+  vb=(0.000000 17.174000 0)
+  vc=(0.000000 0.000000 17.174000)
+
+Total particles = 906
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Order 4 vertex memory scaled up to 16
+Volume check:
+  Total domain volume  = 5065.407344
+  Total Voronoi volume = 5065.407344
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Zn-N16__long-Nring1                      LCD= 18.29 PLD= 12.18 rho=0.328
+Opening File: data/catalogue/cifs/pcu__Zn-N16__long-Nring2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(17.865000 0 0)
+  vb=(0.000000 17.865000 0)
+  vc=(0.000000 0.000000 17.865000)
+
+Total particles = 903
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Order 4 vertex memory scaled up to 16
+Volume check:
+  Total domain volume  = 5701.761690
+  Total Voronoi volume = 5701.761690
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Zn-N16__long-Nring2                      LCD= 19.89 PLD= 14.54 rho=0.292
+Opening File: data/catalogue/cifs/pcu__Zn-N16__short-F4.cif
+Radii analysis: the smallest atom r = 1.39 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(12.924000 0 0)
+  vb=(0.000000 12.924000 0)
+  vc=(0.000000 0.000000 12.924000)
+
+Total particles = 739
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2158.692825
+  Total Voronoi volume = 2158.692825
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Zn-N16__short-F4                         LCD= 11.19 PLD=  8.57 rho=0.758
+Opening File: data/catalogue/cifs/pcu__Zn-N16__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(13.246000 0 0)
+  vb=(0.000000 13.246000 0)
+  vc=(0.000000 0.000000 13.246000)
+
+Total particles = 627
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Order 4 vertex memory scaled up to 16
+Volume check:
+  Total domain volume  = 2324.097011
+  Total Voronoi volume = 2324.097011
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Zn-N16__short-H                          LCD= 13.26 PLD=  9.94 rho=0.550
+Opening File: data/catalogue/cifs/pcu__Zn-N16__short-NH2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(12.822000 0 0)
+  vb=(0.000000 12.822000 0)
+  vc=(0.000000 0.000000 12.822000)
+
+Total particles = 675
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2107.984036
+  Total Voronoi volume = 2107.984036
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Zn-N16__short-NH2                        LCD= 11.35 PLD=  9.01 rho=0.642
+Opening File: data/catalogue/cifs/pcu__Zn-N16__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(12.701000 0 0)
+  vb=(0.000000 12.701000 0)
+  vc=(0.000000 0.000000 12.701000)
+
+Total particles = 624
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 2048.866908
+  Total Voronoi volume = 2048.866908
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Zn-N16__short-Nring1                     LCD= 11.99 PLD=  8.49 rho=0.626
+Opening File: data/catalogue/cifs/pcu__Zn-N382__long-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(16.509000 0 0)
+  vb=(0.205806 16.196692 0)
+  vc=(-0.865004 -3.276512 15.824213)
+
+Total particles = 879
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 4231.255311
+  Total Voronoi volume = 4231.255311
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Zn-N382__long-H                          LCD= 16.45 PLD= 11.53 rho=0.360
+Opening File: data/catalogue/cifs/pcu__Zn-N382__long-Nring2.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(16.509000 0 0)
+  vb=(0.205806 16.196692 0)
+  vc=(-0.865004 -3.276512 15.824213)
+
+Total particles = 873
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 4231.255311
+  Total Voronoi volume = 4231.255311
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Zn-N382__long-Nring2                     LCD= 16.48 PLD= 11.60 rho=0.362
+Opening File: data/catalogue/cifs/pcu__Zn-N382__short-H.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(11.924000 0 0)
+  vb=(0.147550 11.596061 0)
+  vc=(-0.620613 -2.350212 11.349616)
+
+Total particles = 597
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 1569.327751
+  Total Voronoi volume = 1569.327751
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Zn-N382__short-H                         LCD=  9.29 PLD=  6.51 rho=0.729
+Opening File: data/catalogue/cifs/pcu__Zn-N382__short-Nring1.cif
+Radii analysis: the smallest atom r = 1.09 while the largest atoms r = 1.7.
+Box dimensions:
+  va=(11.384000 0 0)
+  vb=(0.140641 11.053105 0)
+  vc=(-0.591793 -2.240885 10.822608)
+
+Total particles = 594
+
+Internal grid size = (5 5 5)
+
+Using voro++ with radii for particles.
+Performing Voronoi decomposition.
+Volume check:
+  Total domain volume  = 1361.793056
+  Total Voronoi volume = 1361.793056
+Voronoi decomposition finished. Rerouting Voronoi network information.
+Finished rerouting information.
+pcu__Zn-N382__short-Nring1                    LCD=  8.59 PLD=  5.74 rho=0.843

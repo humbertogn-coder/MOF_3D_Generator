@@ -1,0 +1,23 @@
+__pycache__/
+*.pyc
+*.pkl
+*.joblib
+runtime.log
+data/external/qmof.csv
+data/catalogue/cifs_all/
+# VASP: inputs in runs/ are tracked; large outputs go to Zenodo
+POTCAR
+WAVECAR
+CHG
+CHGCAR
+PROCAR
+DOSCAR
+XDATCAR
+vasprun*.xml
+OUTCAR*
+vasp*.log
+slurm_*.out
+slurm_*.err
+*:Zone.Identifier
+*:mshield
+.ipynb_checkpoints/

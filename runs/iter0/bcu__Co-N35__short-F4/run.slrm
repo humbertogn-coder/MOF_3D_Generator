@@ -1,0 +1,40 @@
+#!/bin/bash
+#SBATCH --job-name=mofal
+#SBATCH --time=48:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=48
+#SBATCH --mem=120G
+#SBATCH --output=slurm_%j.out
+#SBATCH --error=slurm_%j.err
+# ---------------------------------------------------------------------------
+# Relax (ISIF=3, restarted from CONTCAR until ionic convergence, max 4 rounds)
+# then a static run for the band gap and projected DOS.
+# Submit from runs/<iter>/<name>/ ; expects relax/ (POSCAR INCAR KPOINTS POTCAR) and
+# static/ (INCAR KPOINTS) as written by scripts/07_prepare_vasp.py.
+# Edit the module lines for your cluster (TAMU Grace example below).
+# ---------------------------------------------------------------------------
+set -euo pipefail
+module purge
+module load intel/2024a
+module load VASP/6.3.2-intel-2024a     # adjust: 'module spider VASP'
+VASP="srun vasp_std"
+
+converged() {  # converged = VASP reached EDIFFG in <= 3 ionic steps of this round
+  grep -q "reached required accuracy" "$1/OUTCAR" || return 1
+  [ "$(grep -c 'F=' "$1/OSZICAR")" -le 3 ]
+}
+
+cd relax
+for round in 1 2 3 4; do
+  echo "== relax round $round $(date)"
+  $VASP > vasp_round${round}.log 2>&1 || true
+  cp OUTCAR OUTCAR.round${round}; cp vasprun.xml vasprun.round${round}.xml
+  if converged .; then echo "relaxation converged in round $round"; break; fi
+  cp CONTCAR POSCAR
+done
+cd ..
+
+cp relax/CONTCAR static/POSCAR
+cp relax/POTCAR static/
+cd static && $VASP > vasp.log 2>&1 && cd ..
+echo "done $(date)"
