@@ -67,7 +67,10 @@ def write_inputs(structure, folder: Path, stage: str = "relax", afm: bool = Fals
     params = dict(RELAX if stage == "relax" else STATIC)
     params["MAGMOM"] = magmom_string([site.specie.symbol for site in s], afm=afm)
     mesh = kpoint_mesh(s.lattice.abc)
-    if stage == "static" and np.prod(mesh) >= 4:
+    nk = int(np.prod(mesh))
+    if nk >= 2:   # k-point parallelisation (48 ranks: 4 groups x 12, NCORE=4); no effect on results
+        params["KPAR"] = 4 if nk >= 4 else 2
+    if stage == "static" and nk >= 4:
         params.update(ISMEAR=-5)
         params.pop("SIGMA", None)
     if extra:
