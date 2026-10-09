@@ -1,0 +1,5 @@
+# Keep Unix line endings everywhere (VASP inputs and shell scripts run on Linux clusters)
+* text=auto eol=lf
+*.png binary
+*.pdf binary
+*.cif text eol=lf
