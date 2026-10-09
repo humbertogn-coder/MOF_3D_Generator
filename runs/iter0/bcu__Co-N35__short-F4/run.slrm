@@ -27,7 +27,7 @@ cd "$SLURM_SUBMIT_DIR"
 module purge
 module load intel/2022a
 module load vasp/6.3.2
-BIN=/sw/restricted/vasp/sw/vasp.6.3.2-intel_2022a/bin
+BIN=${VASP_BIN_DIR:-/sw/restricted/vasp/sw/vasp.6.3.2-intel_2022a/bin}
 MAX_ROUNDS=6
 
 pick_exe() {   # Gamma-only k-mesh -> vasp_gam (faster) if available

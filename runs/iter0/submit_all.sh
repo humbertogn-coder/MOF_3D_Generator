@@ -1,13 +1,16 @@
 #!/bin/bash
 # Build POTCARs and submit every structure of an iteration folder.
-# Usage (on Grace):  cd /scratch/user/$USER/iter0 && bash submit_all.sh
+# Usage (on Grace):  cd /scratch/user/$USER/iter0 && bash submit_all.sh [name ...]
+#   no arguments -> every structure; with names -> only those folders (e.g. a test job)
 # Re-running is safe: folders with static/STATIC_DONE are skipped, and folders that
 # are queued/running (job name match) are skipped.
 set -euo pipefail
 ROOT=$(cd "$(dirname "$0")" && pwd)
 cd "$ROOT"
 running=$(squeue -u "$USER" -h -o "%j" 2>/dev/null || true)
-for d in */; do
+targets=("$@")
+[ ${#targets[@]} -eq 0 ] && targets=(*/)
+for d in "${targets[@]}"; do
   name=${d%/}
   [ -d "$name/relax" ] || continue
   if [ -f "$name/static/STATIC_DONE" ]; then echo "[done]    $name"; continue; fi

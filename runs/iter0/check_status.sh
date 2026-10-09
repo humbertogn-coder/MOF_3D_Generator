@@ -13,7 +13,8 @@ for d in */; do
   elif [ -f "$n/relax/OUTCAR" ];       then st=relaxing
   else st=pending; fi
   note=""
-  grep -q "ZBRENT\|EDDDAV\|BRMIX\|Error" "$n/relax/vasp_round${r}.log" 2>/dev/null && note="check log"
+  last_log=$(ls -t "$n"/relax/vasp_round*.log 2>/dev/null | head -1)
+  [ -n "$last_log" ] && grep -q "ZBRENT\|EDDDAV\|BRMIX\|Error" "$last_log" && note="check log"
   printf "%-36s %-10s %-7s %-8s %-14s %s\n" "${n:0:36}" "$st" "$r" "$steps" "${e:-}" "$note"
 done
 echo; squeue -u "$USER" -o "%.10i %.40j %.8T %.10M %.10L" 2>/dev/null
