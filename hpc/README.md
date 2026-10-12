@@ -36,3 +36,28 @@ Back on the PC, extract `iter0_results.tar.gz` into `runs/iter0/` of the reposit
 ```bash
 python scripts/08_parse_dft.py --runs runs/iter0 --iteration 0
 ```
+
+## Protocol v2 (from the iteration-0 restart on)
+
+Iteration 0 showed three problems with the first protocol:
+
+1. **Strained starting geometries.** 48 of the 131 generated frameworks have a compressed
+   C–C bond (< 1.30 Å, down to 1.10 Å) at the node–linker junction, and more have short
+   C–H/N–H bonds (`data/catalogue/compressed_bonds_report.csv`). Initial DFT forces reached
+   12–35 eV/Å, the spin-polarised SCF hit NELM at nearly every ionic step, and five
+   relaxations made only 3–6 ionic steps in 24 h. **Fix:** CHGNet pre-relaxation
+   (`scripts/09_prerelax_chgnet.py`, separate environment `requirements-prerelax.txt`);
+   `07_prepare_vasp.py --prerelaxed data/prerelaxed` uses the result. CHGNet volumes were
+   within 1 % of the converged DFT volumes for MOF-5 and the Cu-paddlewheel cds framework.
+2. **Cost.** Relaxations now use the Γ point when every lattice vector is ≥ 12 Å (static
+   runs keep the full mesh), EDIFFG = −0.05 eV/Å, NELM = 120, LMAXMIX = 4, ALGO = All for
+   Fe/Co/Ni (no tetrahedron smearing with ALGO = All), and a per-structure `walltime` file
+   (12 h up to 160 atoms, 24 h above) so that fewer SUs are reserved per job.
+3. **Convergence rule and collapse.** Soft frameworks kept drifting along flat modes, so a
+   relaxation is now accepted after a restarted round (round ≥ 2) that reaches the force
+   criterion. `08_parse_dft.py` rejects frameworks whose volume changed by more than 10 % or
+   whose cell angles changed by more than 10° relative to the generated structure (two
+   M3(CO2)6 pcu frameworks lost ~50 % of their volume, the Zn-paddlewheel cds framework
+   sheared by 25°). A folder with an `EXCLUDED` file is never resubmitted.
+
+The restart package for iteration 0 is `runs/iter0_restart/` (`apply_restart.sh`).

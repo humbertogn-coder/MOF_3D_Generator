@@ -169,3 +169,30 @@ def magnetization_report(moments: Iterable[float], symbols: Iterable[str],
         "n_ligand_above_threshold": int((lig > ligand_threshold).sum()),
         "radical_flag": bool(lig.size and (lig.max() > ligand_threshold)),
     }
+
+
+# Shortest acceptable length (A) for common covalent bonds; about 0.88-0.92 of the
+# usual value (aromatic C-C 1.39, C-O(carboxylate) 1.26, C-N 1.34-1.47, C-H 1.09,
+# N-H 1.01, C-F 1.35). Shorter bonds indicate a strained PORMAKE junction or a
+# distorted substituent, which the overlap tests above do not catch.
+MIN_BOND = {("C", "C"): 1.30, ("C", "O"): 1.18, ("C", "N"): 1.25, ("C", "H"): 0.98,
+            ("H", "N"): 0.95, ("C", "F"): 1.28, ("H", "O"): 0.90}
+
+
+def compressed_bonds(atoms: Atoms, cutoff: float = 1.75) -> list:
+    """Return (i, j, symbol pair, distance) for covalent bonds shorter than MIN_BOND.
+
+    Reported, not used to reject structures: CHGNet pre-relaxation
+    (scripts/09_prerelax_chgnet.py) removes these distortions before DFT.
+    """
+    sym = atoms.get_chemical_symbols()
+    i, j, d = neighbor_list("ijd", atoms, cutoff)
+    out = []
+    for a, b, dist in zip(i, j, d):
+        if a >= b:
+            continue
+        key = tuple(sorted((sym[a], sym[b])))
+        lo = MIN_BOND.get(key)
+        if lo is not None and dist < lo:
+            out.append((int(a), int(b), f"{key[0]}-{key[1]}", round(float(dist), 3)))
+    return out

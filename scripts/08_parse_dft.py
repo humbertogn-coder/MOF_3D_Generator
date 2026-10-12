@@ -7,7 +7,12 @@ A label is accepted (label_ok) only if
   * the final structure passes the same structural QC as the catalogue
     (no overlaps, no isolated atoms, a single connected framework), and
   * no non-metal atom carries a magnetic moment > 0.3 muB (radical flag);
-    flagged runs are kept for manual inspection but not used for training.
+    flagged runs are kept for manual inspection but not used for training, and
+  * the framework did not collapse: cell volume within +/-10 % of the generated
+    structure and no cell angle changed by more than 10 degrees (in iteration 0 two
+    M3(CO2)6 pcu frameworks lost ~50 % of their volume and the Zn-paddlewheel cds
+    framework sheared by 25 degrees; such geometries are dense phases, not the
+    designed porous framework).
 
 Usage
 -----
@@ -34,6 +39,10 @@ def main():
     ap.add_argument("--iteration", type=int, required=True)
     ap.add_argument("--catalogue", default=str(ROOT / "data/catalogue/passed.csv"))
     ap.add_argument("--out", default=str(ROOT / "data/dft/dft_results.csv"))
+    ap.add_argument("--cifs", default=str(ROOT / "data/catalogue/cifs"),
+                    help="generated structures, reference for the collapse check")
+    ap.add_argument("--max_dv", type=float, default=10.0, help="percent")
+    ap.add_argument("--max_dangle", type=float, default=10.0, help="degrees")
     args = ap.parse_args()
     from pymatgen.io.ase import AseAtomsAdaptor
 
@@ -43,8 +52,14 @@ def main():
         name = folder.name
         row = {"name": name, "iteration": args.iteration}
         reasons = []
+        if "__" in name and name.split("__")[-1] in ("afm",):
+            reasons.append("spin-state sensitivity run (not a training label)")
+        if (folder / "EXCLUDED").exists():
+            reasons.append("excluded: " + (folder / "EXCLUDED").read_text().strip())
+        final = None
         try:
             rel = parse_run(folder / "relax")
+            final = rel["_final_structure"]
             row.update(relax_converged_ionic=rel["converged_ionic"],
                        relax_converged_electronic=rel["converged_electronic"],
                        relax_ionic_steps=rel["n_ionic_steps"])
@@ -54,6 +69,7 @@ def main():
             reasons.append(f"relax unreadable: {type(exc).__name__}")
         try:
             st = parse_run(folder / "static")
+            final = st["_final_structure"]
             atoms = AseAtomsAdaptor.get_atoms(st["_final_structure"])
             q = check_atoms(atoms)
             row.update(gap_eV=st["gap_eV"], vbm_eV=st["vbm_eV"], cbm_eV=st["cbm_eV"],
@@ -72,6 +88,15 @@ def main():
                     reasons.append("radical flag (ligand moment > 0.3 muB)")
         except Exception as exc:  # noqa: BLE001
             reasons.append(f"static unreadable: {type(exc).__name__}")
+        ref = Path(args.cifs) / f"{name}.cif"
+        if final is not None and ref.exists():
+            from pymatgen.core import Structure
+            s0 = Structure.from_file(ref)
+            dv = 100 * (final.volume / s0.volume - 1)
+            dang = max(abs(a - b) for a, b in zip(final.lattice.angles, s0.lattice.angles))
+            row.update(vol_change_pct=round(dv, 1), max_angle_change_deg=round(dang, 1))
+            if abs(dv) > args.max_dv or dang > args.max_dangle:
+                reasons.append(f"framework collapse/shear (dV {dv:.0f} %, dangle {dang:.0f} deg)")
         row["label_ok"] = not reasons
         row["label_reasons"] = ";".join(reasons)
         if name in meta.index:

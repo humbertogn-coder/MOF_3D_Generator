@@ -1,0 +1,6 @@
+name,V_generated,V_chgnet,V_dft,chgnet_vs_dft_pct
+pcu__Zn-N16__short-H,2324,2213,2190,1.0
+cds__Cu-N409__short-Nring1,2387,2461,2467,-0.2
+cds__Zn-N153__short-H,2563,2556,2184,17.0
+pcu__Mn-N548__short-Nring1,1422,1449,726,99.7
+pcu__Mn-N548__short-H,1635,1582,797,98.6

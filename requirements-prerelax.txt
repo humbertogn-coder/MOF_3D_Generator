@@ -1,0 +1,2 @@
+# Pre-relaxation environment (separate from requirements.txt: needs PyTorch)
+chgnet==0.4.2

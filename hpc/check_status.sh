@@ -8,7 +8,8 @@ for d in */; do
   r=$(ls "$n"/relax/OUTCAR.round* 2>/dev/null | wc -l)
   steps=$(grep -c "F=" "$n/relax/OSZICAR" 2>/dev/null); steps=${steps:-0}
   e=$(grep "F=" "$n/relax/OSZICAR" 2>/dev/null | tail -1 | awk '{print $5}')
-  if   [ -f "$n/static/STATIC_DONE" ]; then st=done
+  if   [ -f "$n/EXCLUDED" ];            then st=excluded
+  elif [ -f "$n/static/STATIC_DONE" ]; then st=done
   elif [ -f "$n/relax/RELAX_DONE" ];   then st=static
   elif [ -f "$n/relax/OUTCAR" ];       then st=relaxing
   else st=pending; fi

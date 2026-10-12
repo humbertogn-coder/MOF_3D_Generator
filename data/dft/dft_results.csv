@@ -1,0 +1,12 @@
+name,iteration,relax_converged_ionic,relax_converged_electronic,relax_ionic_steps,vol_change_pct,max_angle_change_deg,label_ok,label_reasons,topology,metal,node_id,node_family,linker_label,substituent,n_rings,gap_eV,vbm_eV,cbm_eV,is_direct,energy_eV,static_converged_electronic,total_magnetization,final_qc_passed,final_qc_reasons,mag_sum_abs_metal,mag_sum_abs_ligand,mag_max_abs_ligand,mag_n_ligand_above_threshold,mag_radical_flag
+bcu__Co-N35__short-F4,0,False,True,5.0,-0.0,0.0,False,relaxation not converged;static unreadable: FileNotFoundError,bcu,Co,N35,M4(CO2)8,short-F4,F4,1,,,,,,,,,,,,,,
+bcu__Fe-N350__short-F4,0,False,False,3.0,0.0,0.0,False,relaxation not converged;static unreadable: FileNotFoundError,bcu,Fe,N350,M4(CO2)8,short-F4,F4,1,,,,,,,,,,,,,,
+bcu__Fe-N350__short-NH2,0,False,True,5.0,-0.0,0.0,False,relaxation not converged;static unreadable: FileNotFoundError,bcu,Fe,N350,M4(CO2)8,short-NH2,NH2,1,,,,,,,,,,,,,,
+cds__Cu-N409__short-NH2,0,False,True,177.0,0.5,6.0,False,relaxation not converged;static unreadable: FileNotFoundError,cds,Cu,N409,M2(CO2)4-paddlewheel,short-NH2,NH2,1,,,,,,,,,,,,,,
+cds__Cu-N409__short-Nring1,0,True,True,1.0,3.3,3.7,True,,cds,Cu,N409,M2(CO2)4-paddlewheel,short-Nring1,Nring1,1,0.2567999999999997,-3.5755,-3.3187,False,-453.48196731,True,-0.0001384,True,,0.004,0.0,0.0,0.0,False
+cds__Zn-N153__short-H,0,False,True,22.0,-15.4,24.2,False,"relaxation not converged;static unreadable: FileNotFoundError;framework collapse/shear (dV -15 %, dangle 24 deg)",cds,Zn,N153,M2(CO2)4-paddlewheel,short-H,H,1,,,,,,,,,,,,,,
+dia__Ni-N649__short-NH2,0,False,False,3.0,0.0,0.0,False,relaxation not converged;static unreadable: FileNotFoundError,dia,Ni,N649,M2(CO2)4-tetrahedral,short-NH2,NH2,1,,,,,,,,,,,,,,
+nbo__Co-N317__short-F4,0,False,False,6.0,0.0,0.0,False,relaxation not converged;static unreadable: FileNotFoundError,nbo,Co,N317,M2(CO2)4-paddlewheel,short-F4,F4,1,,,,,,,,,,,,,,
+pcu__Mn-N548__short-H,0,,,,,,False,relax unreadable: IndexError;static unreadable: FileNotFoundError,pcu,Mn,N548,M3(CO2)6,short-H,H,1,,,,,,,,,,,,,,
+pcu__Mn-N548__short-Nring1,0,False,True,25.0,-49.2,22.4,False,"relaxation not converged;static unreadable: FileNotFoundError;framework collapse/shear (dV -49 %, dangle 22 deg)",pcu,Mn,N548,M3(CO2)6,short-Nring1,Nring1,1,,,,,,,,,,,,,,
+pcu__Zn-N16__short-H,0,True,True,1.0,-5.8,0.3,True,,pcu,Zn,N16,Zn4O(CO2)6,short-H,H,1,3.5179,-4.9958,-1.4779,False,-362.35999577,True,0.0,True,,0.0,0.0,0.0,0.0,False

@@ -1,0 +1,3 @@
+pcu__Mn-N548__short-H framework collapse in DFT relaxation (volume -51 %, cell angle change 24 deg)
+pcu__Mn-N548__short-Nring1 framework collapse in DFT relaxation (volume -49 %, cell angle change 23 deg)
+cds__Zn-N153__short-H framework shear in DFT relaxation (volume -15 %, cell angle change 25 deg)
