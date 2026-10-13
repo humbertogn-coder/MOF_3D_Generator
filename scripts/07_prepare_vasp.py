@@ -59,7 +59,8 @@ def main():
         print(f"{name}: {len(s)} atoms, relax k-mesh {'x'.join(mesh)}, static {'x'.join(smesh)}, "
               f"walltime {walltime(len(s))}")
     batch.to_csv(out / "batch.csv", index=False)
-    for helper in ("make_potcar.sh", "submit_all.sh", "check_status.sh", "collect_results.sh"):
+    for helper in ("make_potcar.sh", "make_potcars_all.sh", "submit_all.sh", "check_status.sh",
+                   "collect_results.sh"):
         shutil.copy(ROOT / "hpc" / helper, out / helper)
 
 
