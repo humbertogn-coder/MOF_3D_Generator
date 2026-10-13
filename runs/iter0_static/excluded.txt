@@ -1,0 +1,2 @@
+dia__Ni-N649__short-NH2 SCF did not converge (NELM reached in 5 of 8 ionic steps; 8 steps in 24 h even after CHGNet pre-relaxation); excluded for cost
+nbo__Co-N317__short-F4 unstable relaxation (ZBRENT fatal error after 27 steps in 22 h; total moment 34 -> 12 muB; Fmax 2.6 eV/A at restart); excluded for cost

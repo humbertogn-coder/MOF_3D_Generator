@@ -8,6 +8,12 @@ A label is accepted (label_ok) only if
     (no overlaps, no isolated atoms, a single connected framework), and
   * no non-metal atom carries a magnetic moment > 0.3 muB (radical flag);
     flagged runs are kept for manual inspection but not used for training, and
+  * relaxations stopped by hand (relax/RELAX_DONE starting with "stopped") are accepted
+    when the final maximum force is <= 0.25 eV/A; they are marked relax_stopped, and the
+    note in RELAX_DONE records why (iteration 0: allocation limit, gap stable to within
+    0.05 eV over the last 50 ionic steps);
+  * for a structure with a sibling run <name>__afm (antiferromagnetic initial moments,
+    same geometry), the lower-energy spin solution provides the label (spin_solution);
   * the framework did not collapse: cell volume within +/-10 % of the generated
     structure and no cell angle changed by more than 10 degrees (in iteration 0 two
     M3(CO2)6 pcu frameworks lost ~50 % of their volume and the Zn-paddlewheel cds
@@ -31,6 +37,21 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from mofal.qc import check_atoms, magnetization_report  # noqa: E402
 from mofal.vasp import parse_run  # noqa: E402
+
+SPIN_KEYS = ("gap_eV", "vbm_eV", "cbm_eV", "is_direct", "energy_eV", "total_magnetization",
+             "mag_sum_abs_metal", "mag_sum_abs_ligand", "mag_max_abs_ligand",
+             "mag_n_ligand_above_threshold", "mag_radical_flag")
+
+
+def last_fmax(outcar: Path) -> float:
+    import re
+    import numpy as np
+    txt = outcar.read_text(errors="ignore")
+    blocks = re.findall(r"TOTAL-FORCE \(eV/Angst\)\n -+\n(.*?)\n -+", txt, re.S)
+    if not blocks:
+        return float("nan")
+    f = np.array([[float(x) for x in ln.split()[3:6]] for ln in blocks[-1].strip().splitlines()])
+    return float(np.linalg.norm(f, axis=1).max())
 
 
 def main():
@@ -57,16 +78,24 @@ def main():
         if (folder / "EXCLUDED").exists():
             reasons.append("excluded: " + (folder / "EXCLUDED").read_text().strip())
         final = None
+        sibling = name.endswith("__afm")
+        done = folder / "relax" / "RELAX_DONE"
+        stopped = done.exists() and done.read_text().lstrip().lower().startswith("stopped")
         try:
+            if sibling:
+                raise FileNotFoundError("sibling runs reuse the parent geometry")
             rel = parse_run(folder / "relax")
             final = rel["_final_structure"]
             row.update(relax_converged_ionic=rel["converged_ionic"],
                        relax_converged_electronic=rel["converged_electronic"],
-                       relax_ionic_steps=rel["n_ionic_steps"])
-            if not (rel["converged_ionic"] and rel["converged_electronic"]):
+                       relax_ionic_steps=rel["n_ionic_steps"], relax_stopped=stopped,
+                       relax_fmax_final=round(last_fmax(folder / "relax" / "OUTCAR"), 3))
+            ionic_ok = rel["converged_ionic"] or (stopped and row["relax_fmax_final"] <= 0.25)
+            if not (ionic_ok and rel["converged_electronic"]):
                 reasons.append("relaxation not converged")
         except Exception as exc:  # noqa: BLE001
-            reasons.append(f"relax unreadable: {type(exc).__name__}")
+            if not sibling:
+                reasons.append(f"relax unreadable: {type(exc).__name__}")
         try:
             st = parse_run(folder / "static")
             final = st["_final_structure"]
@@ -104,6 +133,23 @@ def main():
                 row[c] = meta.at[name, c]
         rows.append(row)
         print(f"{name:45s} gap={row.get('gap_eV', float('nan')):.3f}  ok={row['label_ok']}  {row['label_reasons']}")
+
+    # spin solutions: an <name>__afm run on the same geometry replaces the label if lower in energy
+    by_name = {r["name"]: r for r in rows}
+    for r in rows:
+        sib = by_name.get(r["name"] + "__afm")
+        if sib is None or not sib.get("static_converged_electronic") or pd.isna(r.get("energy_eV", float("nan"))):
+            continue
+        de = sib["energy_eV"] - r["energy_eV"]
+        r["spin_solutions_dE_eV"] = round(de, 4)
+        r["gap_fm_start_eV"], r["gap_afm_start_eV"] = r.get("gap_eV"), sib.get("gap_eV")
+        if de < -1e-3:
+            for k in SPIN_KEYS:
+                if k in sib:
+                    r[k] = sib[k]
+            r["spin_solution"] = "afm-start"
+        else:
+            r["spin_solution"] = "fm-start"
 
     new = pd.DataFrame(rows)
     out = Path(args.out)

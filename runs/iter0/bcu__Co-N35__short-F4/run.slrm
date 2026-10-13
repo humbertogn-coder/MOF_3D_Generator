@@ -10,7 +10,10 @@
 #SBATCH --error=slurm_%j.err
 # ---------------------------------------------------------------------------
 # Relaxation (ISIF=3) restarted from CONTCAR until VASP prints "reached required
-# accuracy" within <= 3 ionic steps, then a static run for gap and PDOS.
+# accuracy" in a restarted round (round >= 2) or within <= 3 ionic steps, then a
+# static run for gap and PDOS. (Iteration 0 required <= 3 steps in the restart; soft
+# frameworks kept drifting along flat modes, so two converged rounds now suffice,
+# as in the Materials Project double relaxation.)
 #
 # RESUMABLE: just `sbatch run.slrm` again if the job hits the walltime. The script
 # continues from relax/CONTCAR, and skips stages already marked as done
@@ -35,9 +38,9 @@ pick_exe() {   # Gamma-only k-mesh -> vasp_gam (faster) if available
     echo "$BIN/vasp_gam"; else echo "$BIN/vasp_std"; fi
 }
 run_vasp() { mpirun -np "$SLURM_NTASKS" "$(pick_exe .)" > "$1" 2>&1; }
-relax_converged() {
+relax_converged() {   # $1 = round number
   grep -q "reached required accuracy" OUTCAR 2>/dev/null || return 1
-  [ "$(grep -c 'F=' OSZICAR)" -le 3 ]
+  [ "$1" -ge 2 ] || [ "$(grep -c 'F=' OSZICAR)" -le 3 ]
 }
 
 echo "== $(basename "$PWD") | job $SLURM_JOB_ID | $(hostname) | $(date)"
@@ -45,18 +48,18 @@ echo "== $(basename "$PWD") | job $SLURM_JOB_ID | $(hostname) | $(date)"
 # ------------------------------------------------------------------ relax
 if [ ! -f relax/RELAX_DONE ]; then
   cd relax
-  # resume: a previous (killed or unconverged) round left a CONTCAR
-  if [ -s CONTCAR ] && [ -f OUTCAR ]; then cp CONTCAR POSCAR; fi
+  # resume: a previous (killed or unconverged) round left a CONTCAR with coordinates
+  if [ -f OUTCAR ] && [ "$(wc -l < CONTCAR 2>/dev/null || echo 0)" -gt 8 ]; then cp CONTCAR POSCAR; fi
   n_prev=$(ls OUTCAR.round* 2>/dev/null | wc -l)
   for round in $(seq $((n_prev + 1)) $MAX_ROUNDS); do
     echo "-- relax round $round $(date)"
     run_vasp vasp_round${round}.log
     cp OUTCAR OUTCAR.round${round} 2>/dev/null || true
     cp vasprun.xml vasprun.round${round}.xml 2>/dev/null || true
-    if relax_converged; then
+    if relax_converged "$round"; then
       echo "relaxation converged in round $round"; touch RELAX_DONE; break
     fi
-    [ -s CONTCAR ] && cp CONTCAR POSCAR
+    [ "$(wc -l < CONTCAR 2>/dev/null || echo 0)" -gt 8 ] && cp CONTCAR POSCAR
   done
   cd ..
 fi
@@ -66,7 +69,8 @@ fi
 
 # ------------------------------------------------------------------ static
 if [ ! -f static/STATIC_DONE ]; then
-  cp relax/CONTCAR static/POSCAR
+  if [ "$(wc -l < relax/CONTCAR 2>/dev/null || echo 0)" -gt 8 ]; then
+    cp relax/CONTCAR static/POSCAR; else cp relax/POSCAR static/POSCAR; fi
   cp relax/POTCAR static/
   cd static
   echo "-- static $(date)"

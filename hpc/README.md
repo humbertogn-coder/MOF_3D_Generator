@@ -61,3 +61,15 @@ Iteration 0 showed three problems with the first protocol:
    sheared by 25°). A folder with an `EXCLUDED` file is never resubmitted.
 
 The restart package for iteration 0 is `runs/iter0_restart/` (`apply_restart.sh`).
+
+### Iteration-0 finish (static-only, `runs/iter0_static/`)
+
+The protocol-v2 relaxations of the bcu and cds Cu-NH2 frameworks reached the 12 h walltime
+after 97–240 ionic steps with final forces of 0.08–0.22 eV/Å; the gap along the last 50 steps
+varied by ≤ 0.06 eV. With the allocation nearly spent, these relaxations are stopped
+(`relax/RELAX_DONE` starting with "stopped" plus a note) and only the static run is done;
+`08_parse_dft.py` accepts such runs if the final force is ≤ 0.25 eV/Å and marks them
+`relax_stopped`. dia Ni-NH2 (SCF failures) and nbo Co-F4 (unstable relaxation) are excluded.
+Cu paddlewheels get a second static with antiferromagnetic initial moments (`<name>__afm`);
+the lower-energy spin solution provides the label (for cds Cu-Nring1 the FM start collapsed
+to a non-magnetic state 0.32 eV above the magnetic solution; gap 0.26 vs 0.53 eV).

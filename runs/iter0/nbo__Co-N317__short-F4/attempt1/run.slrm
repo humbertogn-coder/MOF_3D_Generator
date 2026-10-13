@@ -1,0 +1,77 @@
+#!/bin/bash
+#SBATCH --job-name=mofal
+#SBATCH --partition=medium
+#SBATCH --time=24:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=48
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=120G
+#SBATCH --output=slurm_%j.out
+#SBATCH --error=slurm_%j.err
+# ---------------------------------------------------------------------------
+# Relaxation (ISIF=3) restarted from CONTCAR until VASP prints "reached required
+# accuracy" within <= 3 ionic steps, then a static run for gap and PDOS.
+#
+# RESUMABLE: just `sbatch run.slrm` again if the job hits the walltime. The script
+# continues from relax/CONTCAR, and skips stages already marked as done
+# (files relax/RELAX_DONE and static/STATIC_DONE).
+#
+# Layout (written by scripts/07_prepare_vasp.py):
+#   <name>/relax/{POSCAR,INCAR,KPOINTS,POTCAR}   <name>/static/{INCAR,KPOINTS}
+# Settings below are the ones used on TAMU Grace for the previous runs
+# (intel/2022a + vasp/6.3.2); edit modules for another cluster. The Slurm account is
+# passed by submit_all.sh (ACCOUNT variable or .account file); see hpc/README.md.
+# ---------------------------------------------------------------------------
+set -uo pipefail
+cd "$SLURM_SUBMIT_DIR"
+module purge
+module load intel/2022a
+module load vasp/6.3.2
+BIN=${VASP_BIN_DIR:-/sw/restricted/vasp/sw/vasp.6.3.2-intel_2022a/bin}
+MAX_ROUNDS=6
+
+pick_exe() {   # Gamma-only k-mesh -> vasp_gam (faster) if available
+  if [ "$(sed -n 4p "$1/KPOINTS" | tr -s ' ' | sed 's/^ //')" = "1 1 1" ] && [ -x "$BIN/vasp_gam" ]; then
+    echo "$BIN/vasp_gam"; else echo "$BIN/vasp_std"; fi
+}
+run_vasp() { mpirun -np "$SLURM_NTASKS" "$(pick_exe .)" > "$1" 2>&1; }
+relax_converged() {
+  grep -q "reached required accuracy" OUTCAR 2>/dev/null || return 1
+  [ "$(grep -c 'F=' OSZICAR)" -le 3 ]
+}
+
+echo "== $(basename "$PWD") | job $SLURM_JOB_ID | $(hostname) | $(date)"
+
+# ------------------------------------------------------------------ relax
+if [ ! -f relax/RELAX_DONE ]; then
+  cd relax
+  # resume: a previous (killed or unconverged) round left a CONTCAR
+  if [ -s CONTCAR ] && [ -f OUTCAR ]; then cp CONTCAR POSCAR; fi
+  n_prev=$(ls OUTCAR.round* 2>/dev/null | wc -l)
+  for round in $(seq $((n_prev + 1)) $MAX_ROUNDS); do
+    echo "-- relax round $round $(date)"
+    run_vasp vasp_round${round}.log
+    cp OUTCAR OUTCAR.round${round} 2>/dev/null || true
+    cp vasprun.xml vasprun.round${round}.xml 2>/dev/null || true
+    if relax_converged; then
+      echo "relaxation converged in round $round"; touch RELAX_DONE; break
+    fi
+    [ -s CONTCAR ] && cp CONTCAR POSCAR
+  done
+  cd ..
+fi
+if [ ! -f relax/RELAX_DONE ]; then
+  echo "relaxation NOT converged after $MAX_ROUNDS rounds - check relax/vasp_round*.log"; exit 1
+fi
+
+# ------------------------------------------------------------------ static
+if [ ! -f static/STATIC_DONE ]; then
+  cp relax/CONTCAR static/POSCAR
+  cp relax/POTCAR static/
+  cd static
+  echo "-- static $(date)"
+  run_vasp vasp.log
+  grep -q "General timing" OUTCAR && touch STATIC_DONE
+  cd ..
+fi
+echo "== finished $(date)"
