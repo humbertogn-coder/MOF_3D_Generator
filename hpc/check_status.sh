@@ -9,6 +9,7 @@ for d in */; do
   steps=$(grep -c "F=" "$n/relax/OSZICAR" 2>/dev/null); steps=${steps:-0}
   e=$(grep "F=" "$n/relax/OSZICAR" 2>/dev/null | tail -1 | awk '{print $5}')
   if   [ -f "$n/EXCLUDED" ];            then st=excluded
+  elif [ -f "$n/static/STATIC_DONE" ] && [ -d "$n/static_bs" ] && [ ! -f "$n/static_bs/STATIC_DONE" ]; then st=static_bs
   elif [ -f "$n/static/STATIC_DONE" ]; then st=done
   elif [ -f "$n/relax/RELAX_DONE" ];   then st=static
   elif [ -f "$n/relax/OUTCAR" ];       then st=relaxing

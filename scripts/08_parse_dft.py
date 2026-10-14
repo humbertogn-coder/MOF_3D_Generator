@@ -15,11 +15,13 @@ A label is accepted (label_ok) only if
   * for a structure with sibling runs <name>__afm, <name>__afm2, ... (other initial
     magnetic moments, same geometry), the lowest-energy spin solution provides the label
     (spin_solution; all solutions are listed in data/dft/spin_solutions.csv);
-  * the framework did not collapse: cell volume within +/-10 % of the generated
-    structure and no cell angle changed by more than 10 degrees (in iteration 0 two
+  * the framework did not collapse: cell volume within +/-20 % of the generated
+    structure and no cell angle changed by more than 10 degrees. In iteration 0 two
     M3(CO2)6 pcu frameworks lost ~50 % of their volume and the Zn-paddlewheel cds
-    framework sheared by 25 degrees; such geometries are dense phases, not the
-    designed porous framework).
+    framework sheared by 25 degrees (dense phases, not the designed framework), while
+    intact soft frameworks contracted by up to 8.5 % (PBE-D3 vs PORMAKE geometry); the
+    volume limit was 10 % during iteration 0 and set to 20 % before iteration 1 so that
+    such contraction is not mistaken for collapse (no iteration-0 decision changes).
 
 Usage
 -----
@@ -63,13 +65,13 @@ def main():
     ap.add_argument("--out", default=str(ROOT / "data/dft/dft_results.csv"))
     ap.add_argument("--cifs", default=str(ROOT / "data/catalogue/cifs"),
                     help="generated structures, reference for the collapse check")
-    ap.add_argument("--max_dv", type=float, default=10.0, help="percent")
+    ap.add_argument("--max_dv", type=float, default=20.0, help="percent")
     ap.add_argument("--max_dangle", type=float, default=10.0, help="degrees")
     args = ap.parse_args()
     from pymatgen.io.ase import AseAtomsAdaptor
 
     meta = pd.read_csv(args.catalogue).set_index("name")
-    rows = []
+    rows, extra_rows = [], []
     for folder in sorted(p for p in Path(args.runs).iterdir() if p.is_dir()):
         name = folder.name
         row = {"name": name, "iteration": args.iteration}
@@ -129,6 +131,22 @@ def main():
             if abs(dv) > args.max_dv or dang > args.max_dangle:
                 reasons.append(f"framework collapse/shear (dV {dv:.0f} %, dangle {dang:.0f} deg)")
         row["label_ok"] = not reasons
+        if (folder / "static_bs" / "vasprun.xml").exists():   # broken-symmetry static, same folder
+            try:
+                bs = parse_run(folder / "static_bs")
+                bs_row = {"name": f"{name}__afmbs", "iteration": args.iteration,
+                          "gap_eV": bs["gap_eV"], "vbm_eV": bs["vbm_eV"], "cbm_eV": bs["cbm_eV"],
+                          "is_direct": bs["is_direct"], "energy_eV": bs["energy_eV"],
+                          "static_converged_electronic": bs["converged_electronic"],
+                          "total_magnetization": bs.get("total_magnetization"),
+                          "label_ok": False, "label_reasons": "spin-state sensitivity run (not a training label)"}
+                if bs["_site_moments"] is not None:
+                    from pymatgen.io.ase import AseAtomsAdaptor as _A
+                    mr = magnetization_report(bs["_site_moments"], _A.get_atoms(bs["_final_structure"]).get_chemical_symbols())
+                    bs_row.update({f"mag_{k}": v for k, v in mr.items()})
+                extra_rows.append(bs_row)
+            except Exception as exc:  # noqa: BLE001
+                print(f"{name}: static_bs unreadable ({type(exc).__name__})")
         row["label_reasons"] = ";".join(reasons)
         if name in meta.index:
             for c in ("topology", "metal", "node_id", "node_family", "linker_label", "substituent", "n_rings"):
@@ -136,6 +154,7 @@ def main():
         rows.append(row)
         print(f"{name:45s} gap={row.get('gap_eV', float('nan')):.3f}  ok={row['label_ok']}  {row['label_reasons']}")
 
+    rows += extra_rows
     # spin solutions: <name>__afm* runs on the same geometry; the lowest energy gives the label
     spin_rows = []
     for r in rows:

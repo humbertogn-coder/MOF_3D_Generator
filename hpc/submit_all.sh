@@ -25,7 +25,8 @@ targets=("$@")
 for d in "${targets[@]}"; do
   name=${d%/}
   [ -d "$name/relax" ] || continue
-  if [ -f "$name/static/STATIC_DONE" ]; then echo "[done]    $name"; continue; fi
+  if [ -f "$name/static/STATIC_DONE" ] && { [ ! -d "$name/static_bs" ] || [ -f "$name/static_bs/STATIC_DONE" ]; }; then
+    echo "[done]    $name"; continue; fi
   if [ -f "$name/EXCLUDED" ]; then echo "[excluded] $name: $(cat "$name/EXCLUDED")"; continue; fi
   if echo "$running" | grep -qx "${name:0:60}"; then echo "[queued]  $name"; continue; fi
   if [ ! -s "$name/relax/POTCAR" ]; then

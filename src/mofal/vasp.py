@@ -61,9 +61,56 @@ def magmom_string(symbols, afm: bool = False) -> str:
     return " ".join(out)
 
 
+def metal_pairs(structure, max_dist: float = 4.5, isolation: float = 1.5):
+    """Isolated M2 units (paddlewheels): pairs of open-shell metals that are mutual nearest
+    neighbours closer than ``max_dist`` and whose next-nearest metal is at least
+    ``isolation`` times farther away. Indices refer to the sorted structure (POSCAR order).
+    Returns [] if any open-shell metal is not in such a pair (e.g. M4 clusters in bcu)."""
+    s = structure.get_sorted_structure()
+    metals = [i for i, site in enumerate(s) if HIGH_SPIN_MAGMOM.get(site.specie.symbol, 0) > 0]
+    if len(metals) < 2:
+        return []
+    near = {}
+    for a in metals:
+        d = sorted((s.get_distance(a, b), b) for b in metals if b != a)
+        if d[0][0] > max_dist or (len(d) > 1 and d[1][0] < isolation * d[0][0]):
+            return []
+        near[a] = d[0][1]
+    if any(near[near[a]] != a for a in metals):
+        return []
+    return sorted({tuple(sorted((a, near[a]))) for a in metals})
+
+
+def bs_magmom_string(structure) -> Optional[str]:
+    """Broken-symmetry initial moments for frameworks built from isolated M2 units
+    (paddlewheels): +m/-m on the two metals of each unit, m = max(high-spin moment, 2). In iteration 0 this start found the
+    lowest-energy solution of both Cu-paddlewheel frameworks (0.41-0.43 eV below the
+    non-magnetic solution reached from the ferromagnetic start)."""
+    s = structure.get_sorted_structure()
+    pairs = metal_pairs(s)
+    if not pairs:
+        return None
+    vals = [0.0] * len(s)
+    for a, b in pairs:
+        m = max(HIGH_SPIN_MAGMOM[s[a].specie.symbol], 2.0)
+        vals[a], vals[b] = m, -m
+    out, prev, count = [], None, 0
+    for v in vals + [None]:
+        if v == prev:
+            count += 1
+            continue
+        if prev is not None:
+            out.append(f"{count}*{prev:g}" if count > 1 else f"{prev:g}")
+        prev, count = v, 1
+    return " ".join(out)
+
+
 def write_inputs(structure, folder: Path, stage: str = "relax", afm: bool = False,
                  extra: Optional[Dict] = None, gamma_relax: bool = True) -> None:
-    """Write POSCAR/INCAR/KPOINTS for ``stage`` in {'relax', 'static'}.
+    """Write POSCAR/INCAR/KPOINTS for ``stage`` in {'relax', 'static', 'static_bs'}.
+
+    'static_bs' is the static run with broken-symmetry moments (paddlewheels only; see
+    bs_magmom_string) and ISYM = 0; it is run after 'static' on the same geometry.
 
     ``structure`` is a pymatgen Structure; species are sorted so that POTCAR order
     matches POSCAR order.
@@ -76,6 +123,9 @@ def write_inputs(structure, folder: Path, stage: str = "relax", afm: bool = Fals
     params = dict(RELAX if stage == "relax" else STATIC)
     symbols = [site.specie.symbol for site in s]
     params["MAGMOM"] = magmom_string(symbols, afm=afm)
+    if stage == "static_bs":
+        params["MAGMOM"] = bs_magmom_string(s)
+        params["ISYM"] = 0
     if set(symbols) & ALGO_ALL_METALS:
         params["ALGO"] = "All"
     mesh = kpoint_mesh(s.lattice.abc)
@@ -85,7 +135,7 @@ def write_inputs(structure, folder: Path, stage: str = "relax", afm: bool = Fals
     if nk >= 2:   # k-point parallelisation; no effect on results. KPAR = 4 ran out of memory
         params["KPAR"] = 2   # (120 GB, 48 ranks) for the 136-152-atom bcu statics with 8 k-points
 
-    if stage == "static" and nk >= 4 and params["ALGO"] != "All":   # no tetrahedra with ALGO = All
+    if stage.startswith("static") and nk >= 4 and params["ALGO"] != "All":   # no tetrahedra with ALGO = All
         params.update(ISMEAR=-5)
         params.pop("SIGMA", None)
     if extra:

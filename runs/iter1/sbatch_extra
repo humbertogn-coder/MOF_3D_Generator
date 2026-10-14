@@ -1,0 +1,1 @@
+--partition=cpu --ntasks=64 --mem=240G

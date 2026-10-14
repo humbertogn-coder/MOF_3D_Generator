@@ -9,10 +9,16 @@ Usage
 
 Candidates already submitted to DFT (any status) are excluded; only accepted labels
 (label_ok) count toward N_topo.
+
+Eligibility rules learned from earlier iterations (written to selection_rules.json):
+    --exclude_family "M3(CO2)6"                 node family whose frameworks collapsed in DFT
+    --exclude_combo "M2(CO2)4-paddlewheel:cds:Zn"  node family:topology:metal that sheared
+    --max_atoms 160                             DFT cost/stability limit
 """
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
@@ -38,6 +44,9 @@ def main():
     ap.add_argument("--max_per_topology", type=int, default=MAX_PER_TOPOLOGY)
     ap.add_argument("--max_per_metal", type=int, default=MAX_PER_METAL)
     ap.add_argument("--max_per_substituent", type=int, default=MAX_PER_SUBSTITUENT)
+    ap.add_argument("--exclude_family", nargs="*", default=[])
+    ap.add_argument("--exclude_combo", nargs="*", default=[], help="node_family:topology:metal")
+    ap.add_argument("--max_atoms", type=int, default=None)
     args = ap.parse_args()
     d = ROOT / "data/al" / f"iter{args.iteration}"
     pred = pd.read_csv(d / "predictions.csv")
@@ -49,6 +58,21 @@ def main():
         ok = dft[dft.label_ok.astype(bool)]
         n_topo = ok.topology.value_counts().to_dict()
     pool = pred[~pred.name.isin(done)].copy()
+    n0 = len(pool)
+    if args.exclude_family:
+        pool = pool[~pool.node_family.isin(args.exclude_family)]
+    for combo in args.exclude_combo:
+        fam, topo, metal = combo.split(":")
+        pool = pool[~((pool.node_family == fam) & (pool.topology == topo) & (pool.metal == metal))]
+    if args.max_atoms:
+        pool = pool[pool.n_atoms <= args.max_atoms]
+    rules = dict(iteration=args.iteration, n=args.n, exclude_family=args.exclude_family,
+                 exclude_combo=args.exclude_combo, max_atoms=args.max_atoms,
+                 max_per_topology=args.max_per_topology, max_per_metal=args.max_per_metal,
+                 max_per_substituent=args.max_per_substituent, kappa=args.kappa, alpha=args.alpha,
+                 beta=args.beta, sigma=args.sigma, forced=args.forced, n_not_yet_computed=n0, n_eligible=len(pool),
+                 n_topo_labels=n_topo)
+    (d / "selection_rules.json").write_text(json.dumps(rules, indent=2) + "\n")
     pool["acquisition_score"] = acquisition_score(pool, n_topo, sigma_col=f"sigma_{args.sigma}",
                                                   kappa=args.kappa, alpha=args.alpha, beta=args.beta)
     pool.sort_values("acquisition_score").to_csv(d / "acquisition_ranking.csv", index=False)

@@ -78,4 +78,16 @@ if [ ! -f static/STATIC_DONE ]; then
   grep -q "General timing" OUTCAR && touch STATIC_DONE
   cd ..
 fi
+
+# ------------------------------------------------------------------ static_bs (paddlewheels)
+# Same geometry, broken-symmetry initial moments; 08_parse_dft.py keeps the lower energy.
+if [ -d static_bs ] && [ -f static/STATIC_DONE ] && [ ! -f static_bs/STATIC_DONE ]; then
+  cp static/POSCAR static_bs/POSCAR
+  cp relax/POTCAR static_bs/
+  cd static_bs
+  echo "-- static_bs $(date)"
+  run_vasp vasp.log
+  grep -q "General timing" OUTCAR && touch STATIC_DONE
+  cd ..
+fi
 echo "== finished $(date)"

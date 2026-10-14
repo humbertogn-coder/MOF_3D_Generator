@@ -25,12 +25,13 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
-from mofal.vasp import write_inputs  # noqa: E402
+from mofal.vasp import bs_magmom_string, write_inputs  # noqa: E402
 
 
 def walltime(n_atoms: int) -> str:
-    """SLURM time request (iteration-0 timings on Grace, 48 cores, protocol v2)."""
-    return "12:00:00" if n_atoms <= 160 else "24:00:00"
+    """SLURM time request. Iteration 0 (Grace, 48 cores, protocol v2): 64-80-atom cds
+    frameworks relaxed in < 12 h; 136-152-atom bcu frameworks needed > 12 h."""
+    return "12:00:00" if n_atoms <= 100 else "24:00:00"
 
 
 def main():
@@ -52,6 +53,9 @@ def main():
         write_inputs(s, folder / "relax", stage="relax", afm=args.afm)
         write_inputs(s, folder / "static", stage="static", afm=args.afm)
         (folder / "static" / "POSCAR").unlink()   # replaced by relax/CONTCAR at run time
+        if bs_magmom_string(s):                    # paddlewheel: broken-symmetry static as well
+            write_inputs(s, folder / "static_bs", stage="static_bs")
+            (folder / "static_bs" / "POSCAR").unlink()
         shutil.copy(ROOT / "hpc/run_relax_static.slrm", folder / "run.slrm")
         (folder / "walltime").write_text(walltime(len(s)) + "\n")
         mesh = open(folder / 'relax' / 'KPOINTS').read().splitlines()[3].split()
