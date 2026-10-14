@@ -82,8 +82,9 @@ def write_inputs(structure, folder: Path, stage: str = "relax", afm: bool = Fals
     if stage == "relax" and gamma_relax and min(s.lattice.abc) >= GAMMA_RELAX_MIN_A:
         mesh = (1, 1, 1)
     nk = int(np.prod(mesh))
-    if nk >= 2:   # k-point parallelisation (48 ranks: 4 groups x 12, NCORE=4); no effect on results
-        params["KPAR"] = 4 if nk >= 4 else 2
+    if nk >= 2:   # k-point parallelisation; no effect on results. KPAR = 4 ran out of memory
+        params["KPAR"] = 2   # (120 GB, 48 ranks) for the 136-152-atom bcu statics with 8 k-points
+
     if stage == "static" and nk >= 4 and params["ALGO"] != "All":   # no tetrahedra with ALGO = All
         params.update(ISMEAR=-5)
         params.pop("SIGMA", None)

@@ -1,0 +1,5 @@
+name,start,energy_eV,gap_eV,mag_sum_abs_metal,total_magnetization
+cds__Cu-N409__short-NH2,fm-start,-522.64069256,0.22639999999999993,0.0,-0.0003973
+cds__Cu-N409__short-NH2,afm-start,-522.6406925,0.22630000000000017,0.0,-0.0001049
+cds__Cu-N409__short-Nring1,fm-start,-453.48196731,0.2567999999999997,0.004,-0.0001384
+cds__Cu-N409__short-Nring1,afm-start,-453.79795227,0.5274000000000001,2.2119999999999997,1.9997784

@@ -12,8 +12,9 @@ A label is accepted (label_ok) only if
     when the final maximum force is <= 0.25 eV/A; they are marked relax_stopped, and the
     note in RELAX_DONE records why (iteration 0: allocation limit, gap stable to within
     0.05 eV over the last 50 ionic steps);
-  * for a structure with a sibling run <name>__afm (antiferromagnetic initial moments,
-    same geometry), the lower-energy spin solution provides the label (spin_solution);
+  * for a structure with sibling runs <name>__afm, <name>__afm2, ... (other initial
+    magnetic moments, same geometry), the lowest-energy spin solution provides the label
+    (spin_solution; all solutions are listed in data/dft/spin_solutions.csv);
   * the framework did not collapse: cell volume within +/-10 % of the generated
     structure and no cell angle changed by more than 10 degrees (in iteration 0 two
     M3(CO2)6 pcu frameworks lost ~50 % of their volume and the Zn-paddlewheel cds
@@ -73,12 +74,13 @@ def main():
         name = folder.name
         row = {"name": name, "iteration": args.iteration}
         reasons = []
-        if "__" in name and name.split("__")[-1] in ("afm",):
+        is_spin_sibling = "__" in name and name.split("__")[-1].startswith("afm")
+        if is_spin_sibling:
             reasons.append("spin-state sensitivity run (not a training label)")
         if (folder / "EXCLUDED").exists():
             reasons.append("excluded: " + (folder / "EXCLUDED").read_text().strip())
         final = None
-        sibling = name.endswith("__afm")
+        sibling = is_spin_sibling
         done = folder / "relax" / "RELAX_DONE"
         stopped = done.exists() and done.read_text().lstrip().lower().startswith("stopped")
         try:
@@ -134,22 +136,36 @@ def main():
         rows.append(row)
         print(f"{name:45s} gap={row.get('gap_eV', float('nan')):.3f}  ok={row['label_ok']}  {row['label_reasons']}")
 
-    # spin solutions: an <name>__afm run on the same geometry replaces the label if lower in energy
-    by_name = {r["name"]: r for r in rows}
+    # spin solutions: <name>__afm* runs on the same geometry; the lowest energy gives the label
+    spin_rows = []
     for r in rows:
-        sib = by_name.get(r["name"] + "__afm")
-        if sib is None or not sib.get("static_converged_electronic") or pd.isna(r.get("energy_eV", float("nan"))):
+        if "__" in r["name"] and r["name"].split("__")[-1].startswith("afm"):
             continue
-        de = sib["energy_eV"] - r["energy_eV"]
-        r["spin_solutions_dE_eV"] = round(de, 4)
-        r["gap_fm_start_eV"], r["gap_afm_start_eV"] = r.get("gap_eV"), sib.get("gap_eV")
-        if de < -1e-3:
+        sibs = [x for x in rows if x["name"].startswith(r["name"] + "__afm")
+                and x.get("static_converged_electronic") and pd.notna(x.get("energy_eV", float("nan")))]
+        if not sibs or pd.isna(r.get("energy_eV", float("nan"))):
+            continue
+        cands = [("fm-start", r)] + [(x["name"].split("__")[-1] + "-start", x) for x in sibs]
+        for lab, x in cands:
+            spin_rows.append(dict(name=r["name"], start=lab, energy_eV=x["energy_eV"], gap_eV=x.get("gap_eV"),
+                                  mag_sum_abs_metal=x.get("mag_sum_abs_metal"),
+                                  total_magnetization=x.get("total_magnetization")))
+        e0 = r["energy_eV"]
+        best_lab, best = min(cands, key=lambda c: c[1]["energy_eV"])
+        r["spin_solutions_dE_eV"] = round(best["energy_eV"] - e0, 4)
+        r["gap_fm_start_eV"] = r.get("gap_eV")
+        r["spin_solutions_gap_range_eV"] = f"{min(c[1]['gap_eV'] for c in cands):.3f}-{max(c[1]['gap_eV'] for c in cands):.3f}"
+        if best is not r and best["energy_eV"] < e0 - 1e-3:
             for k in SPIN_KEYS:
-                if k in sib:
-                    r[k] = sib[k]
-            r["spin_solution"] = "afm-start"
+                if k in best:
+                    r[k] = best[k]
+            r["spin_solution"] = best_lab
         else:
             r["spin_solution"] = "fm-start"
+    if spin_rows:
+        sp = Path(args.out).with_name("spin_solutions.csv")
+        sp.parent.mkdir(parents=True, exist_ok=True)
+        pd.DataFrame(spin_rows).to_csv(sp, index=False)
 
     new = pd.DataFrame(rows)
     out = Path(args.out)
