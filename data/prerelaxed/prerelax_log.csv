@@ -13,3 +13,11 @@ bcu__Co-N35__short-Nring1,128,data/catalogue/cifs/bcu__Co-N35__short-Nring1.cif,
 cds__Cu-N409__short-F4,68,data/catalogue/cifs/cds__Cu-N409__short-F4.cif,4.156,0.032,94,True,2541.3,2574.7,1.31,0,0,35.1
 pcu__Zn-N16__short-NH2,59,data/catalogue/cifs/pcu__Zn-N16__short-NH2.cif,13.061,0.032,166,True,2108.0,2193.5,4.06,15,0,53.6
 pcu__Zn-N16__long-Nring2,77,data/catalogue/cifs/pcu__Zn-N16__long-Nring2.cif,5.552,0.044,391,True,5701.8,5065.8,-11.15,0,0,139.3
+bcu__Co-N35__short-H,136,data/catalogue/cifs/bcu__Co-N35__short-H.cif,24.495,0.045,197,True,3465.7,3517.0,1.48,4,0,111.1
+cds__Fe-N355__short-NH2,76,data/catalogue/cifs/cds__Fe-N355__short-NH2.cif,12.901,0.025,385,True,2378.4,2529.8,6.37,20,0,144.3
+bcu__Co-N35__short-NH2,152,data/catalogue/cifs/bcu__Co-N35__short-NH2.cif,27.358,0.048,517,True,3143.0,3241.4,3.13,44,0,352.9
+cds__Fe-N355__short-Nring1,64,data/catalogue/cifs/cds__Fe-N355__short-Nring1.cif,7.721,0.025,331,True,2298.2,2452.7,6.72,13,0,101.8
+cds__Cu-N409__long-Nring1,104,data/catalogue/cifs/cds__Cu-N409__long-Nring1.cif,9.818,0.047,97,True,6853.7,6856.5,0.04,28,0,42.7
+cds__Cu-N409__long-F8,108,data/catalogue/cifs/cds__Cu-N409__long-F8.cif,7.407,0.018,360,True,6521.3,6878.0,5.47,4,0,158.1
+pcu__Zn-N16__short-Nring1,50,data/catalogue/cifs/pcu__Zn-N16__short-Nring1.cif,7.735,0.034,129,True,2048.9,2138.6,4.38,9,0,32.4
+pcu__Zn-N16__long-Nring1,80,data/catalogue/cifs/pcu__Zn-N16__long-Nring1.cif,10.358,0.05,218,True,5065.4,5089.6,0.48,21,0,76.2

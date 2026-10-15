@@ -184,7 +184,11 @@ def main():
     if spin_rows:
         sp = Path(args.out).with_name("spin_solutions.csv")
         sp.parent.mkdir(parents=True, exist_ok=True)
-        pd.DataFrame(spin_rows).to_csv(sp, index=False)
+        new_sp = pd.DataFrame(spin_rows)
+        if sp.exists():   # keep the solutions of other iterations
+            old_sp = pd.read_csv(sp)
+            new_sp = pd.concat([old_sp[~old_sp.name.isin(new_sp.name)], new_sp], ignore_index=True)
+        new_sp.to_csv(sp, index=False)
 
     new = pd.DataFrame(rows)
     out = Path(args.out)

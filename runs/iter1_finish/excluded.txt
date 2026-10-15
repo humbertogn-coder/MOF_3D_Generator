@@ -1,0 +1,2 @@
+bcu__Fe-N350__short-H framework collapse in DFT relaxation (volume -25 % after 600 ionic steps; CONTCAR)
+cds__Mn-N288__short-F4 framework collapse in DFT relaxation (volume -21 % and still decreasing after 126 ionic steps; gap drifting 1.5-1.8 eV)

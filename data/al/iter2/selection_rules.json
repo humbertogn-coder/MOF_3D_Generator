@@ -1,0 +1,28 @@
+{
+  "iteration": 2,
+  "n": 8,
+  "exclude_family": [
+    "M3(CO2)6"
+  ],
+  "exclude_combo": [
+    "M2(CO2)4-paddlewheel:cds:Zn",
+    "M2(CO2)4-paddlewheel:cds:Mn",
+    "M4(CO2)8:bcu:Fe"
+  ],
+  "max_atoms": 160,
+  "max_per_topology": 4,
+  "max_per_metal": 2,
+  "max_per_substituent": 4,
+  "kappa": 1.0,
+  "alpha": 0.3,
+  "beta": 0.5,
+  "sigma": "tree",
+  "forced": [],
+  "n_not_yet_computed": 112,
+  "n_eligible": 26,
+  "n_topo_labels": {
+    "bcu": 4,
+    "cds": 4,
+    "pcu": 3
+  }
+}

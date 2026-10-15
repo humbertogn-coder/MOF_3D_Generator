@@ -177,4 +177,10 @@ def parse_run(folder: Path) -> dict:
     except Exception:  # noqa: BLE001
         out["_site_moments"] = None
     out["_final_structure"] = vr.final_structure
+    # A relaxation killed by the walltime has no final positions in vasprun.xml, and
+    # pymatgen then returns the initial structure; CONTCAR holds the last geometry.
+    contcar = folder / "CONTCAR"
+    if out["n_ionic_steps"] > 1 and contcar.exists() and len(contcar.read_text().splitlines()) > 8:
+        from pymatgen.core import Structure
+        out["_final_structure"] = Structure.from_file(contcar)
     return out
