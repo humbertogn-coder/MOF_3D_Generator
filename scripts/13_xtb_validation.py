@@ -13,7 +13,9 @@ seed 42; data/xtb/qmof_validation_subset.csv) are computed with tblite GFN1-xTB
 Settings as in the original screen: neutral, electronic temperature 500 K,
 500 SCF iterations. Unpaired electrons: high-spin count of the 3d metals
 (Mn 5, Fe 4, Co 3, Ni 2, Cu 1 per atom), adjusted by one if the parity does not
-match the electron count.
+match the electron count. No spin-polarization term is added, i.e. the Hamiltonian is
+spin-restricted (same orbitals for both spins) with the number of unpaired electrons
+fixed, as in Jose & Walsh, J. Chem. Theory Comput. 2026, 22, 8531.
 
 Usage:
     python scripts/13_xtb_validation.py --cifs data/external/qmof_xtb_subset/cifs \
