@@ -47,3 +47,70 @@ def band_edge_character(vasprun_path: Path, window: float = WINDOW_EV) -> dict:
 def _element_spd(cdos):
     """{element symbol: {OrbitalType: Dos}} summed over sites of that element."""
     return {e.symbol: cdos.get_element_spd_dos(e) for e in cdos.structure.composition.elements}
+
+
+# ----------------------------------------------------------------- site groups
+METALS = {"Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Mg"}
+GROUPS = ("metal", "oxo", "Ocarb", "linker")
+
+
+def site_groups(structure) -> list[str]:
+    """Assign every site to one of four groups.
+
+    metal   metal atoms
+    oxo     O (or OH) bound only to metals (mu4-O of Zn4O, mu3-O of M3 nodes)
+    Ocarb   carboxylate O (bound to a C and to a metal)
+    linker  everything else (C, H, N, F of the organic part)
+    """
+    syms = [s.specie.symbol for s in structure]
+    groups = []
+    for i, s in enumerate(syms):
+        if s in METALS:
+            groups.append("metal")
+        elif s == "O":
+            nn = structure.get_neighbors(structure[i], 1.75)
+            groups.append("Ocarb" if any(n.specie.symbol == "C" for n in nn) else "oxo")
+        else:
+            groups.append("linker")
+    for i, s in enumerate(syms):      # H of a hydroxide belongs to the node
+        if s == "H":
+            nn = structure.get_neighbors(structure[i], 1.2)
+            if nn and groups[nn[0].index] == "oxo":
+                groups[i] = "oxo"
+    return groups
+
+
+def band_edge_projection(vasprun_path: Path, window: float = 0.25) -> dict:
+    """Band-edge character from the site- and orbital-projected eigenvalues (LORBIT = 11).
+
+    VB: occupied states within `window` of the VBM; CB: empty states within `window` of
+    the CBM, both spins, weighted by k-point weight. Fractions are normalised to the
+    projected weight inside the PAW spheres. Robust for very small gaps, where a DOS
+    window would mix the two edges.
+    """
+    from pymatgen.io.vasp import Vasprun
+
+    vr = Vasprun(str(vasprun_path), parse_projected_eigen=True, parse_potcar_file=False)
+    gap, cbm, vbm, direct = vr.eigenvalue_band_properties
+    groups = np.array(site_groups(vr.final_structure))
+    w = np.array(vr.actual_kpoints_weights)
+    res = {"gap_eV": float(gap), "vbm_eV": float(vbm), "cbm_eV": float(cbm)}
+    acc = {"VB": np.zeros((len(groups), 9)), "CB": np.zeros((len(groups), 9))}
+    nst = {"VB": 0.0, "CB": 0.0}
+    for spin, ev in vr.eigenvalues.items():
+        pe = vr.projected_eigenvalues[spin]            # (nk, nb, nions, 9)
+        e, occ = ev[..., 0], ev[..., 1]
+        vb = (occ > 0.5) & (e >= vbm - window)
+        cb = (occ <= 0.5) & (e <= cbm + window)
+        for edge, m in (("VB", vb), ("CB", cb)):
+            for k in range(len(w)):
+                sel = pe[k][m[k]]                      # (nsel, nions, 9)
+                acc[edge] += w[k] * sel.sum(axis=0)
+                nst[edge] += w[k] * m[k].sum()
+    for edge in ("VB", "CB"):
+        tot = acc[edge].sum() or np.nan
+        for g in GROUPS:
+            res[f"{edge}_{g}"] = acc[edge][groups == g].sum() / tot
+        res[f"{edge}_metal_d"] = acc[edge][groups == "metal"][:, 4:].sum() / tot
+        res[f"{edge}_n_states"] = nst[edge]
+    return res

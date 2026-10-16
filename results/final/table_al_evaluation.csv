@@ -1,0 +1,7 @@
+iteration,n_train_labels,n_submitted,n_accepted,n_collapsed,n_other,MAE_eV,bias_eV,n_within_2sigma,n_gap_lt_1eV,n_gap_lt_0p5eV,n_open_shell_labels,mean_sigma_batch,core_h
+0,0,11,6,3,2,0.437,-0.117,5,5,2,5,0.4332980523568475,16081.0
+1,6,8,6,2,0,0.434,-0.211,5,4,3,4,0.4023979963189791,4782.0
+2,11,8,6,0,2,0.432,-0.267,5,4,3,4,0.4290300989808961,3741.0
+all,,27,18,5,4,0.434,-0.199,15,13,8,13,0.42287790141941944,24604.0
+open-shell,,,13,,,0.233,0.094,13,13,8,,,
+closed-shell,,,5,,,0.958,-0.958,2,0,0,,,

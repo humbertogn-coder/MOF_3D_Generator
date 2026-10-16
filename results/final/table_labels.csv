@@ -1,0 +1,19 @@
+name,known_mof,family,topology,node_family,metal,linker,formula,n_atoms,iteration,gap_eV,is_direct,spin_solution,spin_state,spin_solutions_dE_eV,total_magnetization,mu_prospective,sigma_prospective,error_prospective,mu_final,VB_dominant,VB_metal_d,CB_dominant,CB_metal_d,gap_PBE_QMOF,relax_stopped,relax_fmax_final,vol_change_pct,core_h
+pcu__Zn-N16__short-NH2,IRMOF-3,Zn4O pcu,pcu,Zn4O(CO2)6,Zn,NH2-BDC,C24H15N3O13Zn4,59,1,2.514,False,,closed shell,,0.000,1.919,0.523,-0.595,2.270,linker,0.002,linker,0.012,2.347,False,0.048,4.100,24.000
+pcu__Zn-N16__long-Nring2,,Zn4O pcu,pcu,Zn4O(CO2)6,Zn,N2-ring-BPDC,C36H18N6O13Zn4,77,1,2.750,True,,closed shell,,-0.000,1.601,0.513,-1.150,2.233,linker,0.006,linker,0.007,,False,0.046,-11.300,94.000
+pcu__Zn-N16__long-Nring1,,Zn4O pcu,pcu,Zn4O(CO2)6,Zn,N-ring-BPDC,C39H21N3O13Zn4,80,2,3.029,True,,closed shell,,-0.000,1.903,0.538,-1.127,2.468,linker,0.016,linker,0.008,,False,0.049,0.000,90.000
+pcu__Zn-N16__short-Nring1,,Zn4O pcu,pcu,Zn4O(CO2)6,Zn,N-ring-BDC,C21H9N3O13Zn4,50,2,3.114,False,,closed shell,,-0.000,2.337,0.585,-0.778,2.725,linker,0.018,linker,0.011,,False,0.049,5.600,21.000
+pcu__Zn-N16__short-H,MOF-5,Zn4O pcu,pcu,Zn4O(CO2)6,Zn,BDC,C24H12O13Zn4,53,0,3.518,False,,closed shell,,0.000,2.375,0.428,-1.143,2.901,Ocarb,0.106,linker,0.012,3.520,False,0.027,-5.800,191.000
+bcu__Co-N35__short-NH2,,Co4 bcu,bcu,M4(CO2)8,Co,NH2-BDC,C64H40Co8N8O32,152,2,0.332,False,,FM,,24.000,0.352,0.184,0.020,0.338,metal,0.877,metal,0.886,,False,0.050,-7.000,828.000
+bcu__Co-N35__short-Nring1,,Co4 bcu,bcu,M4(CO2)8,Co,N-ring-BDC,C56H24Co8N8O32,128,1,0.372,False,,FM,,24.000,0.380,0.284,0.008,0.366,metal,0.900,metal,0.893,,False,0.043,-14.500,634.000
+bcu__Co-N35__short-H,,Co4 bcu,bcu,M4(CO2)8,Co,BDC,C64H32Co8O32,136,2,0.379,True,,FM,,24.000,0.385,0.262,0.005,0.381,metal,0.812,metal,0.904,,False,0.048,-10.300,556.000
+bcu__Co-N35__short-F4,,Co4 bcu,bcu,M4(CO2)8,Co,F4-BDC,C64Co8F32O32,136,0,0.533,False,,FM,,22.000,0.470,0.428,-0.064,0.477,metal,0.908,metal,0.890,,True,0.128,-8.500,1815.000
+bcu__Fe-N350__short-F4,,Fe4 bcu,bcu,M4(CO2)8,Fe,F4-BDC,C64F32Fe8O32,136,0,0.014,False,,FM,,32.000,0.580,0.477,0.566,0.199,metal,0.920,metal,0.842,,True,0.224,1.400,1849.000
+bcu__Fe-N350__short-NH2,,Fe4 bcu,bcu,M4(CO2)8,Fe,NH2-BDC,C64H40Fe8N8O32,152,0,0.065,False,,FM,,32.000,0.457,0.309,0.392,0.220,metal,0.893,metal,0.897,,True,0.172,-7.300,1775.000
+cds__Cu-N409__short-F4,,Cu2 cds,cds,M2(CO2)4-paddlewheel,Cu,F4-BDC,C32Cu4F16O16,68,1,0.339,False,afmbs-start,AFM,-0.015,-0.000,0.599,0.380,0.260,0.441,metal,0.575,metal,0.577,,False,0.029,-0.300,616.000
+cds__Cu-N409__short-NH2,,Cu2 cds,cds,M2(CO2)4-paddlewheel,Cu,NH2-BDC,C32H20Cu4N4O16,76,0,0.687,False,afm2-start,AFM,-0.432,0.000,0.556,0.288,-0.131,0.633,linker,0.072,metal,0.597,,True,0.082,0.700,1774.000
+cds__Cu-N409__long-F8,,Cu2 cds,cds,M2(CO2)4-paddlewheel,Cu,F8-BPDC,C56Cu4F32O16,108,2,0.890,True,afmbs-start,AFM,-0.454,0.000,0.697,0.585,-0.193,0.804,Ocarb,0.435,metal,0.599,,False,0.044,5.100,345.000
+cds__Cu-N409__short-Nring1,,Cu2 cds,cds,M2(CO2)4-paddlewheel,Cu,N-ring-BDC,C28H12Cu4N4O16,64,0,0.904,True,afm2-start,AFM,-0.415,0.000,0.579,0.366,-0.325,0.694,Ocarb,0.455,metal,0.597,,False,0.028,3.300,613.000
+cds__Co-N317__short-F4,,Co2 cds,cds,M2(CO2)4-paddlewheel,Co,F4-BDC,C32Co4F16O16,68,1,0.668,False,afmbs-start,NM (low spin),-0.261,-0.000,0.476,0.334,-0.192,0.510,metal,0.905,metal,0.891,,True,0.105,-0.300,816.000
+cds__Fe-N355__short-Nring1,,Fe2 cds,cds,M2(CO2)4-paddlewheel,Fe,N-ring-BDC,C28H12Fe4N4O16,64,2,0.035,True,fm-start,FM,0.000,16.000,0.505,0.312,0.470,0.263,metal,0.735,metal,0.874,,False,0.046,10.900,375.000
+cds__Fe-N355__short-F4,,Fe2 cds,cds,M2(CO2)4-paddlewheel,Fe,F4-BDC,C32F16Fe4O16,68,1,0.046,True,fm-start,FM,0.000,16.000,0.444,0.364,0.399,0.202,metal,0.699,metal,0.924,,False,0.049,5.800,294.000

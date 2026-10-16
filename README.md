@@ -36,8 +36,8 @@ data/
   pormake_audit/       audit of all PORMAKE nodes/edges (charge balance, carboxylates)
   catalogue/           catalogue.csv (all), passed.csv (QC-passed), cifs/, zeopp.csv
   al/iter<k>/          predictions, acquisition ranking, selected batch per iteration
-  dft/                 dft_results.csv (gaps, convergence, QC, label_ok), band edges
-results/               benchmark tables, surrogate analysis, figures (PDF)
+  dft/                 dft_results.csv (gaps, convergence, QC, label_ok), spin_solutions.csv, compute_log.csv
+results/               benchmark, surrogate analysis, xTB, retro_al, band_edges, final tables, figures (PDF/PNG)
 ```
 
 ## Installation
@@ -69,6 +69,8 @@ pyzeo (Zeo++ bindings), xgboost, lightgbm, shap.
 | Periodic vs cluster xTB analysis | `python scripts/14_xtb_analysis.py` | `results/xtb/xtb_summary.csv`, `fig_xtb_periodic_vs_cluster.pdf` |
 | xTB on candidates (DFT, CHGNet, PORMAKE geometries) | `python scripts/16_xtb_candidates.py --geometry dft|chgnet|pormake` then `--summarize` | `results/xtb_candidates/*.csv`, `fig_xtb_candidates.pdf` |
 | Retrospective AL benchmark on QMOF (20 repeats, ~45 min on 2 cores) | `python scripts/15_retrospective_al.py` then `--summarize` | `results/retro_al/*.csv`, `fig_retrospective_al.pdf` |
+| Band-edge character (DFT projections, 18 labels; xTB vs DFT for Zn4O) | `python scripts/17_band_edge_character.py` | `results/band_edges/*.csv`, `fig_band_edge_character.pdf` |
+| Final tables and figures of the DFT campaign | `python scripts/18_final_tables.py` | `results/final/*.csv`, `fig_al_prospective.pdf`, `fig_family_series.pdf` |
 
 All random seeds are fixed. The benchmark split is `train_test_split(test_size=0.2,
 stratify=gap<1 eV, random_state=42)`; the surrogate ensemble uses seeds

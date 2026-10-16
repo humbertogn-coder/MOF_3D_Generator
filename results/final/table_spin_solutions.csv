@@ -1,0 +1,19 @@
+name,start,energy_eV,gap_eV,mag_sum_abs_metal,total_magnetization,scf_converged,metal,spin_state,dE_vs_fm_start_eV,label
+cds__Cu-N409__short-NH2,fm-start,-522.6407,0.2264,0.0000,-0.0004,True,Cu,NM (low spin),0.0000,False
+cds__Cu-N409__short-NH2,afm-start,-522.6407,0.2263,0.0000,-0.0001,True,Cu,NM (low spin),0.0000,False
+cds__Cu-N409__short-NH2,afm2-start,-523.0722,0.6866,2.1230,0.0000,True,Cu,AFM,-0.4316,True
+cds__Cu-N409__short-Nring1,fm-start,-453.4820,0.2568,0.0040,-0.0001,True,Cu,NM (low spin),0.0000,False
+cds__Cu-N409__short-Nring1,afm-start,-453.7980,0.5274,2.2120,1.9998,True,Cu,FM,-0.3160,False
+cds__Cu-N409__short-Nring1,afm2-start,-453.8967,0.9040,2.1200,0.0000,True,Cu,AFM,-0.4148,True
+cds__Co-N317__short-F4,fm-start,-488.4258,0.1416,3.9450,4.0000,True,Co,FM,0.0000,False
+cds__Co-N317__short-F4,afmbs-start,-488.6869,0.6680,0.0280,-0.0000,True,Co,NM (low spin),-0.2611,True
+cds__Cu-N409__short-F4,fm-start,-473.4093,0.2724,1.0740,-0.0001,True,Cu,AFM,0.0000,False
+cds__Cu-N409__short-F4,afmbs-start,-473.4247,0.3390,1.0760,-0.0000,True,Cu,AFM,-0.0155,True
+cds__Fe-N355__short-F4,fm-start,-493.6395,0.0457,14.2380,16.0000,True,Fe,FM,0.0000,True
+cds__Fe-N355__short-F4,afmbs-start,-492.7996,0.0780,14.0120,0.0031,True,Fe,AFM,0.8398,False
+cds__Cu-N409__long-F8,fm-start,-751.3456,0.2495,0.0000,0.0000,True,Cu,NM (low spin),0.0000,False
+cds__Cu-N409__long-F8,afmbs-start,-751.8000,0.8896,2.1450,0.0000,True,Cu,AFM,-0.4544,True
+cds__Cu-N409__long-Nring1,fm-start,-745.6639,0.0219,1.5980,1.6753,False,Cu,FM,0.0000,False
+cds__Cu-N409__long-Nring1,afmbs-start,-731.7685,0.6232,2.2180,-2.0003,True,Cu,FM,13.8955,False
+cds__Fe-N355__short-Nring1,fm-start,-474.0733,0.0351,14.1490,15.9997,True,Fe,FM,0.0000,True
+cds__Fe-N355__short-Nring1,afmbs-start,-472.7590,0.0579,13.3070,-0.0000,False,Fe,AFM,1.3143,False
