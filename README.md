@@ -14,8 +14,9 @@ The workflow:
 6. validate them with VASP (PBE-D3(BJ));
 7. feed accepted labels back to the surrogate.
 
-> **Status:** catalogue v3 and the iteration-0 selection are complete. DFT
-> iterations are in progress; `data/dft/` is filled as runs finish.
+> **Status:** catalogue v3 and three DFT iterations (0–2) are complete: 27
+> frameworks computed, 18 labels accepted (`data/dft/dft_results.csv`). The final
+> surrogate (all 18 labels) is in `data/al/iter3/`.
 
 ## Repository layout
 
@@ -103,11 +104,12 @@ are rebuilt deterministically by the scripts in a few minutes.
   - Score: `mu - kappa*sigma - alpha/max(1, N_topo) + beta*I_ood`, with κ = 1.0, α = 0.3 and β = 0.5.
   - Selection keeps at most 2 candidates per topology and 2 per metal in each batch.
   - I_ood = 1 if density, PLD, n_atoms, metal fraction or C/atom lies outside the 5–95 % range of QMOF.
-- **DFT** (VASP 6.3.2).
-  - Settings: PBE-D3(BJ), 520 eV cutoff, spin polarised with a high-spin ferromagnetic initial guess, Γ-centred k-mesh with n_i = round(25 Å / a_i).
-  - Relaxation: full cell (ISIF = 3, EDIFFG = −0.03 eV/Å), restarted until VASP reports "reached required accuracy".
-  - Static run: EDIFF = 10⁻⁶ eV, LORBIT = 11.
-  - A gap is used as a training label only if the relaxation and static SCF converged, the final structure passes QC, and no non-metal atom carries a moment above 0.3 μB.
+- **DFT** (VASP 6.3.2, protocol v2; details in `hpc/README.md`).
+  - Settings: PBE-D3(BJ), 520 eV cutoff, spin polarised with a high-spin ferromagnetic initial guess, Γ-centred k-mesh with n_i = round(25 Å / a_i) (Γ only for relaxations when all lattice vectors are ≥ 12 Å), ALGO = All for Fe, Co and Ni.
+  - Starting geometry: CHGNet pre-relaxation (iterations 1–2; `scripts/09_prerelax_chgnet.py`).
+  - Relaxation: full cell (ISIF = 3, EDIFFG = −0.05 eV/Å), restarted until a restarted round reports "reached required accuracy".
+  - Static run: EDIFF = 10⁻⁶ eV, LORBIT = 11. M₂ paddlewheels also get a broken-symmetry static (±m per M₂ unit); the lowest-energy converged spin solution gives the label (`data/dft/spin_solutions.csv`).
+  - Acceptance rules (`scripts/08_parse_dft.py`): converged relaxation and static SCF, final structure passes QC, no ligand moment above 0.3 μB, no collapse (|ΔV| ≤ 20 %, Δangle ≤ 10°). A relaxation stopped by hand is accepted if Fmax ≤ 0.25 eV/Å.
 
 ## Data availability
 

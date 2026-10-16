@@ -12,9 +12,16 @@ A label is accepted (label_ok) only if
     when the final maximum force is <= 0.25 eV/A; they are marked relax_stopped, and the
     note in RELAX_DONE records why (iteration 0: allocation limit, gap stable to within
     0.05 eV over the last 50 ionic steps);
-  * for a structure with sibling runs <name>__afm, <name>__afm2, ... (other initial
-    magnetic moments, same geometry), the lowest-energy spin solution provides the label
-    (spin_solution; all solutions are listed in data/dft/spin_solutions.csv);
+  * a relaxation that reached ionic convergence but whose last SCF stopped at NELM just
+    short of EDIFF is accepted when the static run on the same geometry (tighter EDIFF,
+    converged) gives a maximum force <= 0.05 eV/A (= |EDIFFG|); marked
+    relax_scf_checked_by_static (iteration 2, bcu Co4-H: dE 1.5e-5 eV at NELM 120);
+  * for a structure with sibling runs <name>__afm, <name>__afm2, ... or a broken-symmetry
+    static in <name>/static_bs (other initial magnetic moments, same geometry), the
+    lowest-energy spin solution among the runs whose SCF converged provides the label
+    (spin_solution; all solutions, converged or not, are listed in
+    data/dft/spin_solutions.csv). If the FM-start static itself did not converge, the
+    energies cannot be compared and no label is taken (spin_solution = "undetermined");
   * the framework did not collapse: cell volume within +/-20 % of the generated
     structure and no cell angle changed by more than 10 degrees. In iteration 0 two
     M3(CO2)6 pcu frameworks lost ~50 % of their volume and the Zn-paddlewheel cds
@@ -41,6 +48,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from mofal.qc import check_atoms, magnetization_report  # noqa: E402
 from mofal.vasp import parse_run  # noqa: E402
 
+RELAX_FMAX = 0.05   # eV/A, |EDIFFG| of protocol v2
 SPIN_KEYS = ("gap_eV", "vbm_eV", "cbm_eV", "is_direct", "energy_eV", "total_magnetization",
              "mag_sum_abs_metal", "mag_sum_abs_ligand", "mag_max_abs_ligand",
              "mag_n_ligand_above_threshold", "mag_radical_flag")
@@ -85,6 +93,7 @@ def main():
         sibling = is_spin_sibling
         done = folder / "relax" / "RELAX_DONE"
         stopped = done.exists() and done.read_text().lstrip().lower().startswith("stopped")
+        relax_state = None   # (ionic_ok, scf_ok) of the relaxation
         try:
             if sibling:
                 raise FileNotFoundError("sibling runs reuse the parent geometry")
@@ -95,8 +104,8 @@ def main():
                        relax_ionic_steps=rel["n_ionic_steps"], relax_stopped=stopped,
                        relax_fmax_final=round(last_fmax(folder / "relax" / "OUTCAR"), 3))
             ionic_ok = rel["converged_ionic"] or (stopped and row["relax_fmax_final"] <= 0.25)
-            if not (ionic_ok and rel["converged_electronic"]):
-                reasons.append("relaxation not converged")
+            relax_state = (ionic_ok, rel["converged_electronic"])
+            relax_idx = len(reasons)
         except Exception as exc:  # noqa: BLE001
             if not sibling:
                 reasons.append(f"relax unreadable: {type(exc).__name__}")
@@ -109,9 +118,14 @@ def main():
                        is_direct=st["is_direct"], energy_eV=st["energy_eV"],
                        static_converged_electronic=st["converged_electronic"],
                        total_magnetization=st.get("total_magnetization"),
+                       static_fmax=round(last_fmax(folder / "static" / "OUTCAR"), 3),
                        final_qc_passed=q.passed, final_qc_reasons=";".join(q.reasons))
             if not st["converged_electronic"]:
                 reasons.append("static SCF not converged")
+            elif relax_state is not None and relax_state[0] and not relax_state[1] \
+                    and row["static_fmax"] <= RELAX_FMAX:
+                relax_state = (True, True)
+                row["relax_scf_checked_by_static"] = True
             if not q.passed:
                 reasons.append("final structure fails QC: " + ";".join(q.reasons))
             if st["_site_moments"] is not None:
@@ -121,6 +135,8 @@ def main():
                     reasons.append("radical flag (ligand moment > 0.3 muB)")
         except Exception as exc:  # noqa: BLE001
             reasons.append(f"static unreadable: {type(exc).__name__}")
+        if relax_state is not None and not all(relax_state):
+            reasons.insert(relax_idx, "relaxation not converged")
         ref = Path(args.cifs) / f"{name}.cif"
         if final is not None and ref.exists():
             from pymatgen.core import Structure
@@ -161,14 +177,22 @@ def main():
         if "__" in r["name"] and r["name"].split("__")[-1].startswith("afm"):
             continue
         sibs = [x for x in rows if x["name"].startswith(r["name"] + "__afm")
-                and x.get("static_converged_electronic") and pd.notna(x.get("energy_eV", float("nan")))]
+                and pd.notna(x.get("energy_eV", float("nan")))]
         if not sibs or pd.isna(r.get("energy_eV", float("nan"))):
             continue
-        cands = [("fm-start", r)] + [(x["name"].split("__")[-1] + "-start", x) for x in sibs]
-        for lab, x in cands:
+        allc = [("fm-start", r)] + [(x["name"].split("__")[-1] + "-start", x) for x in sibs]
+        for lab, x in allc:
             spin_rows.append(dict(name=r["name"], start=lab, energy_eV=x["energy_eV"], gap_eV=x.get("gap_eV"),
                                   mag_sum_abs_metal=x.get("mag_sum_abs_metal"),
-                                  total_magnetization=x.get("total_magnetization")))
+                                  total_magnetization=x.get("total_magnetization"),
+                                  scf_converged=bool(x.get("static_converged_electronic"))))
+        if not r.get("static_converged_electronic"):
+            r["spin_solution"] = "undetermined"     # FM-start energy not reliable: no comparison
+            continue
+        cands = [(lab, x) for lab, x in allc if x.get("static_converged_electronic")]
+        unconv = [lab for lab, x in allc if not x.get("static_converged_electronic")]
+        if unconv:
+            r["spin_solutions_unconverged"] = ",".join(unconv)
         e0 = r["energy_eV"]
         best_lab, best = min(cands, key=lambda c: c[1]["energy_eV"])
         r["spin_solutions_dE_eV"] = round(best["energy_eV"] - e0, 4)
@@ -179,6 +203,9 @@ def main():
                 if k in best:
                     r[k] = best[k]
             r["spin_solution"] = best_lab
+            if best.get("mag_radical_flag") and r.get("label_ok"):
+                r["label_ok"] = False
+                r["label_reasons"] = "radical flag in the lowest spin solution (ligand moment > 0.3 muB)"
         else:
             r["spin_solution"] = "fm-start"
     if spin_rows:

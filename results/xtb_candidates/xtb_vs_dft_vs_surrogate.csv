@@ -6,7 +6,14 @@ cds__Cu-N409__short-NH2,0.687,Cu,cds,NH2,False,0.556,0.288,0.131,0.098,0.082,0.1
 cds__Cu-N409__short-Nring1,0.904,Cu,cds,Nring1,False,0.579,0.366,,0.149,0.130,0.178
 pcu__Zn-N16__short-H,3.518,Zn,pcu,H,True,2.375,0.428,3.363,3.499,3.381,2.871
 bcu__Co-N35__short-Nring1,0.372,Co,bcu,Nring1,False,0.380,0.284,0.174,0.284,,1.020
+cds__Co-N317__short-F4,0.668,Co,cds,F4,False,0.476,0.334,1.334,1.738,1.731,1.174
 cds__Cu-N409__short-F4,0.339,Cu,cds,F4,False,0.599,0.380,0.051,0.187,0.146,0.238
 cds__Fe-N355__short-F4,0.046,Fe,cds,F4,False,0.444,0.364,1.074,1.220,1.217,0.484
 pcu__Zn-N16__long-Nring2,2.750,Zn,pcu,Nring2,True,1.601,0.513,2.523,2.701,,2.037
 pcu__Zn-N16__short-NH2,2.514,Zn,pcu,NH2,True,1.919,0.523,2.521,2.683,2.657,2.823
+bcu__Co-N35__short-H,0.379,Co,bcu,H,False,0.385,0.262,0.059,0.504,,1.109
+bcu__Co-N35__short-NH2,0.332,Co,bcu,NH2,False,0.352,0.184,0.107,0.330,,0.912
+cds__Cu-N409__long-F8,0.890,Cu,cds,F8,False,0.697,0.585,0.158,0.148,0.158,0.194
+cds__Fe-N355__short-Nring1,0.035,Fe,cds,Nring1,False,0.505,0.312,1.140,0.981,0.975,0.781
+pcu__Zn-N16__long-Nring1,3.029,Zn,pcu,Nring1,True,1.903,0.538,2.711,2.807,,2.764
+pcu__Zn-N16__short-Nring1,3.114,Zn,pcu,Nring1,True,2.337,0.585,2.695,2.893,2.880,2.914
