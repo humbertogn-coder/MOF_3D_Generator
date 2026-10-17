@@ -1,0 +1,13 @@
+{
+ "n_built": 168,
+ "n_passed": 131,
+ "n_open": 91,
+ "n_closed": 40,
+ "qc_rejected": 37,
+ "mae_open": 0.233,
+ "mae_closed": 0.958,
+ "bias_open": 0.094,
+ "bias_closed": -0.958,
+ "core_h_total": 24604.0,
+ "core_h_failed": 11894.0
+}

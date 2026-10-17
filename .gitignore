@@ -24,3 +24,5 @@ slurm_*.err
 .account
 data/external/qmof_xtb_subset/
 results/*.log
+manuscript/*.pdf
+manuscript/page-*.jpg

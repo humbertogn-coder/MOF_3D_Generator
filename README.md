@@ -30,6 +30,7 @@ src/mofal/             library code
   vasp.py              VASP inputs (no POTCAR) and output parsing
   pdos.py              band-edge (VBM/CBM) orbital character from PDOS
 scripts/               numbered pipeline steps (see below)
+manuscript/            sources that build the manuscript, SI and highlights from results/
 hpc/                   SLURM driver and POTCAR helper for the cluster
 data/
   external/            QMOF csv (not redistributed; see data/external/README.md)
@@ -71,6 +72,9 @@ pyzeo (Zeo++ bindings), xgboost, lightgbm, shap.
 | Retrospective AL benchmark on QMOF (20 repeats, ~45 min on 2 cores) | `python scripts/15_retrospective_al.py` then `--summarize` | `results/retro_al/*.csv`, `fig_retrospective_al.pdf` |
 | Band-edge character (DFT projections, 18 labels; xTB vs DFT for Zn4O) | `python scripts/17_band_edge_character.py` | `results/band_edges/*.csv`, `fig_band_edge_character.pdf` |
 | Final tables and figures of the DFT campaign | `python scripts/18_final_tables.py` | `results/final/*.csv`, `fig_al_prospective.pdf`, `fig_family_series.pdf` |
+| DOS / PDOS figures of the 18 labels | `python scripts/19_dos_figures.py` | `fig_dos_representative.pdf`, `fig_S_dos_all.pdf`, `results/band_edges/dos_curves/` |
+| Workflow schematic and graphical abstract | `python scripts/20_workflow_figure.py`, `python scripts/21_graphical_abstract.py` | `fig_workflow.pdf`, `graphical_abstract.png` |
+| Manuscript, SI and highlights (.docx) | see `manuscript/README.md` | `manuscript/*.docx` |
 
 All random seeds are fixed. The benchmark split is `train_test_split(test_size=0.2,
 stratify=gap<1 eV, random_state=42)`; the surrogate ensemble uses seeds

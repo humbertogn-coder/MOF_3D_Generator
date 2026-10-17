@@ -1,0 +1,74 @@
+{
+ "../results/figures/fig_family_series.png": [
+  1367,
+  1032
+ ],
+ "../results/figures/fig_al_prospective.png": [
+  1007,
+  995
+ ],
+ "../results/figures/fig_surrogate_topology_metal.png": [
+  1923,
+  769
+ ],
+ "../results/figures/fig_qmof_pbe_vs_hse06.png": [
+  1803,
+  860
+ ],
+ "../results/figures/fig_xtb_periodic_vs_cluster.png": [
+  1573,
+  1543
+ ],
+ "../results/figures/fig_retrospective_al.png": [
+  2230,
+  853
+ ],
+ "../results/figures/graphical_abstract.png": [
+  1535,
+  614
+ ],
+ "../results/figures/fig_surrogate_heatmap.png": [
+  2161,
+  1153
+ ],
+ "../results/figures/fig_xtb_candidates.png": [
+  1025,
+  958
+ ],
+ "../results/figures/fig_band_edge_character.png": [
+  1807,
+  1113
+ ],
+ "../results/figures/fig_surrogate_axis_effects.png": [
+  2230,
+  790
+ ],
+ "../results/figures/fig_feature_distributions.png": [
+  1639,
+  1011
+ ],
+ "../results/figures/fig_S_dos_all.png": [
+  2096,
+  2522
+ ],
+ "../results/figures/fig_dos_representative.png": [
+  1565,
+  1382
+ ],
+ "../results/figures/fig_shap_feature_importance.png": [
+  1254,
+  945
+ ],
+ "../results/figures/fig_workflow.png": [
+  1616,
+  714
+ ],
+ "../results/figures/fig_acquisition_landscape_iter0.png": [
+  1466,
+  869
+ ],
+ "../results/figures/fig_parity_qmof_holdout.png": [
+  1018,
+  827
+ ]
+}
