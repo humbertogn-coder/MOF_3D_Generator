@@ -42,7 +42,11 @@ xbe = pd.read_csv(REPO / "results/band_edges/xtb_vs_dft_band_edges.csv")
 xs = pd.read_csv(REPO / "results/xtb_candidates/xtb_candidates_summary.csv")
 xc = pd.read_csv(REPO / "results/xtb_candidates/xtb_vs_dft_vs_surrogate.csv")
 xq = pd.read_csv(REPO / "results/xtb/xtb_summary.csv")
-ra = pd.read_csv(REPO / "results/retro_al/retro_al_headline.csv")
+_ra_path = REPO / "results/retro_al/retro_al_headline.csv"
+if not _ra_path.exists():
+    _ra_path = REPO / "results/retro_al_v1/retro_al_headline.csv"
+ra = pd.read_csv(_ra_path)
+RETRO_BUDGET, RETRO_END = int(ra.labels.min()), int(ra.labels.max())
 bm = pd.read_csv(REPO / "results/benchmark/table_S1_feature_set_C.csv")
 bc = pd.read_csv(REPO / "results/benchmark/benchmark_combined.csv")
 cat = pd.read_csv(REPO / "data/catalogue/catalogue.csv")
@@ -77,8 +81,8 @@ T["al_eval"] = dict(header=["Iteration", "Labels in training", "Submitted", "Acc
 shell = {str(r.iteration): r for r in ev.itertuples() if str(r.iteration) in ("open-shell", "closed-shell")}
 
 # ---------------------------------------------------------------- Table 3: xTB
-lab_ = {"mu_prospective": "Surrogate μ before DFT", "dft": "GFN1-xTB, DFT geometry (Γ)", "dft_kmesh": "GFN1-xTB, DFT geometry, k-mesh supercell",
-        "chgnet": "GFN1-xTB, CHGNet geometry", "pormake": "GFN1-xTB, as-assembled geometry"}
+lab_ = {"mu_prospective": "Model μ before DFT", "dft": "GFN1-xTB, DFT geometry (Γ)", "dft_kmesh": "GFN1-xTB, DFT geometry, k-mesh supercell",
+        "chgnet": "GFN1-xTB, pre-relaxed geometry (ML potential)", "pormake": "GFN1-xTB, as-assembled geometry"}
 rows = []
 for est in ["mu_prospective", "dft", "dft_kmesh", "chgnet", "pormake"]:
     c = xs[(xs.group == "closed-shell (Zn)") & (xs.estimate == est)].iloc[0]
@@ -202,12 +206,12 @@ rows = []
 for r in xc.itertuples():
     nm = lab[lab.name == r.name]
     rows.append([f"{FAM[nm.family.iloc[0]]}, {linker_fmt(nm.linker.iloc[0])}", f"{r.gap_dft:.2f}", f"{r.mu_prospective:.2f}", f(r.dft), f(r.dft_kmesh) or "–", f(r.chgnet) or "–", f(r.pormake)])
-T["xtb_cand"] = dict(header=["Framework", "PBE-D3 label (eV)", "Surrogate μ (eV)", "xTB, DFT geom. (Γ)", "xTB, DFT geom., k-mesh", "xTB, CHGNet geom.", "xTB, as assembled"],
+T["xtb_cand"] = dict(header=["Framework", "PBE-D3 label (eV)", "Model μ (eV)", "xTB, DFT geom. (Γ)", "xTB, DFT geom., k-mesh", "xTB, pre-relaxed geom.", "xTB, as assembled"],
                      rows=rows, widths=[2.2, 0.9, 0.9, 0.9, 1.0, 0.9, 0.9])
 # S: retrospective AL
 rows = []
 name_ = {"random": "random", "greedy": "greedy (lowest μ)", "lcb": "LCB (μ − σ)", "paper": "this work (LCB + novelty + caps)", "paper_static": "this work, no retraining", "uncertainty": "uncertainty (highest σ)"}
-for n_ in (23, 53):
+for n_ in (RETRO_BUDGET, RETRO_END):
     for s_ in ["random", "greedy", "lcb", "paper", "paper_static", "uncertainty"]:
         r = ra[(ra.labels == n_) & (ra.strategy == s_)].iloc[0]
         rows.append([str(n_), name_[s_], f"{r.hits_lt_0p5:.1f} ± {r.hits_lt_0p5_sd:.1f}", f"{r.hits_lt_1p0:.1f}", f"{r.recall_top10:.2f}", f"{r.test_MAE:.3f}", f"{r.test_MAE_lowgap:.3f}"])
@@ -254,6 +258,40 @@ T["hyper"] = dict(header=["Parameter", "Value", "Note"], rows=[
     ["OOD flag", "density, PLD, n_atoms, metal fraction or C per atom outside the 5–95 % range of QMOF", "89 of 131 frameworks flagged"],
 ], widths=[1.4, 3.0, 2.4], align=["l", "l", "l"])
 
+
+
+
+# S: robustness of the headline numbers to the six convergence exceptions
+dft_ = pd.read_csv(REPO / "data/dft/dft_results.csv").set_index("name")
+lab2 = lab.copy()
+lab2["scf_rule"] = lab2.name.map(dft_.relax_scf_checked_by_static).fillna(False).astype(bool)
+lab2["exception"] = lab2.relax_stopped.astype(bool) | lab2.scf_rule
+lab2["open"] = ~lab2.metal.isin(["Zn", "Mg"])
+rows = []
+for name_, g in (("All 18 labels", lab2), ("Without the six exceptions (five stopped relaxations, one SCF checked by the static run)", lab2[~lab2.exception])):
+    o, c = g[g.open], g[~g.open]
+    rows.append([name_, str(len(g)), str(len(o)), f"{o.error_prospective.abs().mean():.2f}", f"{o.error_prospective.mean():+.2f}",
+                 f"{int((o.gap_eV < 1).sum())}/{len(o)}", f"{int((o.gap_eV < 0.5).sum())}/{len(o)}", str(len(c)), f"{c.error_prospective.abs().mean():.2f}", f"{c.error_prospective.mean():+.2f}"])
+T["robust"] = dict(header=["Label set", "n", "Open-shell n", "MAE open (eV)", "Bias open (eV)", "Open < 1 eV", "Open < 0.5 eV", "Zn_{4}O n", "MAE Zn_{4}O (eV)", "Bias Zn_{4}O (eV)"],
+                   rows=rows, widths=[2.6, 0.4, 0.7, 0.8, 0.8, 0.8, 0.8, 0.6, 0.8, 0.8], align=["l"])
+S_extra = {}
+def _h(s_, n_, col):
+    return float(ra[(ra.labels == n_) & (ra.strategy == s_)][col].iloc[0])
+S_extra["retro_budget"], S_extra["retro_end"] = RETRO_BUDGET, RETRO_END
+for s_ in ["random", "greedy", "lcb", "paper", "paper_static", "uncertainty", "expected_random"]:
+    S_extra[f"hits_{s_}"] = _h(s_, RETRO_BUDGET, "hits_lt_0p5")
+    S_extra[f"hits1_{s_}"] = _h(s_, RETRO_BUDGET, "hits_lt_1p0")
+    S_extra[f"recall_{s_}"] = _h(s_, RETRO_BUDGET, "recall_top10")
+    S_extra[f"hitsend_{s_}"] = _h(s_, RETRO_END, "hits_lt_0p5")
+S_extra["hits_paper_sd"] = _h("paper", RETRO_BUDGET, "hits_lt_0p5_sd")
+S_extra["hits_random_sd"] = _h("random", RETRO_BUDGET, "hits_lt_0p5_sd")
+acc_ = pd.read_csv(_ra_path.with_name("retro_al_accuracy_summary.csv"))
+base_ = float(acc_[(acc_.strategy == "paper") & (acc_.n_before == 0)].test_MAE_mean.iloc[0])
+S_extra["dmae_paper_budget_meV"] = 1000 * (float(acc_[(acc_.strategy == "paper") & (acc_.n_before == RETRO_BUDGET)].test_MAE_mean.iloc[0]) - base_)
+S_extra["dmae_paper_end_meV"] = 1000 * (float(acc_[(acc_.strategy == "paper") & (acc_.n_before == RETRO_END)].test_MAE_mean.iloc[0]) - base_)
+S_extra["dmae_random_end_meV"] = 1000 * (float(acc_[(acc_.strategy == "random") & (acc_.n_before == RETRO_END)].test_MAE_mean.iloc[0]) - base_)
+S_extra["retro_source"] = str(_ra_path.parent.name)
+
 def _fix(x):
     if isinstance(x, list): return [_fix(v) for v in x]
     if isinstance(x, float) and np.isnan(x): return "–"
@@ -271,6 +309,7 @@ S["mae_open"], S["mae_closed"] = shell["open-shell"].MAE_eV, shell["closed-shell
 S["bias_open"], S["bias_closed"] = shell["open-shell"].bias_eV, shell["closed-shell"].bias_eV
 S["core_h_total"] = float(comp.core_h.sum())
 S["core_h_failed"] = float(ex.core_h.sum())
+S.update(S_extra)
 json.dump(S, open(OUT / "scalars.json", "w"), indent=1)
 print(json.dumps(S, indent=1))
 

@@ -63,3 +63,25 @@ Paria 2020, Avilés 2026 (the E_F-character argument it supported is gone), ET-A
 6. Optional: HSE06 single points on 2-3 small low-gap frameworks if a reviewer asks.
 7. Separate figure files: use results/figures/*.pdf (vector) for upload.
 8. Language check by Maryam; the generative-AI declaration is included and must be kept.
+
+## v4.1 (2026-10-19)
+- Title: "Active learning guided screening of three-dimensional metal-organic frameworks: prospective DFT
+  validation and the limits of band gap prediction".
+- Language pass: shorter sentences, plain words, no dashes as punctuation, "model" instead of "surrogate";
+  structure, figure order and reference positions unchanged.
+- Aviles et al., JACS 2026 (group paper on Zn(pyrazole-NDI)) added: Introduction paragraph 1 (hopping vs
+  band-like transport, gap is necessary for band transport but not sufficient) and Section 3.3 (inert Zn node
+  with organic frontier states, persists at PBE0).
+- CHGNet is named once, in Section 2.4 with its citation; elsewhere "universal machine-learned potential"
+  or "pre-relaxed geometry" (text, Fig. 1, graphical abstract, tables).
+- Retrospective benchmark rerun with the prospective batch sizes (11 + 8 + 8, then 8 up to 59 labels):
+  27 labels, 13.4 +/- 2.8 hits < 0.5 eV vs 3.7 +/- 1.6 random (3.7x); recall 60 % vs 17 %; no retraining 13.3;
+  greedy 15.4, LCB 15.2; OOD test MAE falls by 7 meV (17 meV after 59, same as random). The old 11+6+6 run is
+  kept in results/retro_al_v1 for reference.
+- Section 3.4 now says explicitly which parts of the loop worked (model ranking + eligibility rules learned
+  from DFT failures) and which did not at this budget (retraining).
+- Band edge statements narrowed: "Fe and Co" (not "open-shell") for metal d edges; Cu paddlewheels and MOF-5
+  described as exceptions (Cu CBM is Cu d + carboxylate O; MOF-5 VBM is carboxylate O).
+- New SI Table (robustness): headline numbers with and without the six convergence exceptions (open-shell
+  MAE 0.23 -> 0.24 eV, all remaining open-shell labels < 1 eV, Zn4O MAE unchanged).
+- Limitations: broken-symmetry statics were run on the FM-relaxed geometry (new sentence).

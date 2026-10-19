@@ -29,14 +29,14 @@ def arrow(p0, p1, color=INK2, rad=0.0, ls="-"):
 
 box(0.2, 2.25, 2.9, 1.5, "Audited catalogue", "131 hypothetical 3D MOFs\nM(II) carboxylate nodes\n5 nets, 8 linkers", BLUE)
 box(3.55, 2.25, 2.9, 1.5, "QMOF surrogate", "ExtraTrees ensemble, μ ± σ\nLCB acquisition\nwith diversity caps", AQUA)
-box(6.9, 2.25, 2.9, 1.5, "Prospective DFT", "CHGNet pre-relaxation\nPBE-D3(BJ), spin states\n27 computed, 18 labels", ORANGE)
+box(6.9, 2.25, 2.9, 1.5, "Prospective DFT", "ML potential pre-relaxation\nPBE-D3(BJ), spin states\n27 computed, 18 labels", ORANGE)
 arrow((3.12, 3.0), (3.52, 3.0)); arrow((6.47, 3.0), (6.87, 3.0))
 arrow((8.35, 2.22), (5.0, 2.22 - 0.0), color=YELLOW, rad=0.0, ls="--")
 ax.text(5.0, 1.75, "labels retrain the surrogate · band-edge character · periodic GFN1-xTB check", ha="center", va="center",
         fontsize=4.6, color=INK2, style="italic")
-ax.text(0.2, 1.15, "Open-shell Fe, Co, Cu: 13 of 13 below 1 eV; surrogate error 0.23 eV; metal d band edges", fontsize=4.8, color=INK, va="center")
-ax.text(0.2, 0.72, "Closed-shell Zn$_4$O: surrogate 0.96 eV too low; linker band edges; periodic xTB within 0.23 eV", fontsize=4.8, color=INK, va="center")
-ax.text(0.2, 0.29, "At this DFT budget: 3–4 × more low-gap hits than random selection, model error unchanged", fontsize=4.8, color=INK, va="center")
+ax.text(0.2, 1.15, "Open-shell Fe, Co, Cu: 13 of 13 below 1 eV; model error 0.23 eV; Fe and Co edges are metal d", fontsize=4.8, color=INK, va="center")
+ax.text(0.2, 0.72, "Closed-shell Zn$_4$O: model 0.96 eV too low; organic band edges; periodic xTB within 0.23 eV", fontsize=4.8, color=INK, va="center")
+ax.text(0.2, 0.29, "At this DFT budget: 3 to 4 times more low gap hits than random selection; retraining adds little", fontsize=4.8, color=INK, va="center")
 
 ax2 = fig.add_axes([0.72, 0.2, 0.26, 0.72])
 lim = (-0.15, 3.9)
@@ -46,7 +46,7 @@ for shell, col in ((True, BLUE), (False, ORANGE)):
     ax2.errorbar(g.gap_eV, g.mu_prospective, yerr=g.sigma_prospective, fmt="o", ms=3.5, color=col, elinewidth=0.6, capsize=0)
 ax2.set_xlim(lim); ax2.set_ylim(lim)
 ax2.set_xlabel("PBE-D3 gap of the label (eV)", fontsize=5.2)
-ax2.set_ylabel("surrogate μ ± σ before DFT (eV)", fontsize=5.2)
+ax2.set_ylabel("model μ ± σ before DFT (eV)", fontsize=5.2)
 ax2.tick_params(labelsize=5)
 for s in ("top", "right"):
     ax2.spines[s].set_visible(False)

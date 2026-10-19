@@ -74,7 +74,7 @@ def main():
         "H/C valence, node RMSD,",
         "density, ≤ 600 atoms",
         f"→ {n['passed']} pass ({n['open_shell']} open-shell)"], BLUE)
-    box(ax, (5.15, 3.3), W, H, "3  Surrogate", [
+    box(ax, (5.15, 3.3), W, H, "3  Prediction model", [
         "64 descriptors (Zeo++",
         "pores, composition);",
         "5 × ExtraTrees trained on",
@@ -88,8 +88,8 @@ def main():
         "→ batch of 8"], AQUA)
     # bottom row ---------------------------------------------------------------
     box(ax, (7.65, 0.6), W, H, "5  Pre-relaxation", [
-        "CHGNet universal potential:",
-        "positions and cell,",
+        "universal machine-learned",
+        "potential: positions and cell,",
         "F ≤ 0.05 eV/Å; removes the",
         "compressed bonds of the",
         "assembled geometry"], ORANGE)

@@ -1,13 +1,13 @@
 const refs = require("./refs.js");
 const blocks = [
   { title: "Highlights" },
-  { plain: "Active learning for low-band-gap three-dimensional metal–organic frameworks: prospective DFT validation of a chemically audited hypothetical catalogue" },
+  { plain: "Active learning guided screening of three-dimensional metal-organic frameworks: prospective DFT validation and the limits of band gap prediction" },
   { items: [
-    "Audited PORMAKE catalogue of 131 hypothetical 3D MOFs built on charge-balanced nodes",
-    "Three prospective DFT batches, 18 labels: all 13 open-shell frameworks below 1 eV",
-    "QMOF-trained surrogate: 0.23 eV error for open-shell 3d, 0.96 eV for Zn4O frameworks",
-    "Metal d band edges fix the gap; linkers tune it only when the band edges are organic",
-    "Periodic GFN1-xTB on CHGNet geometries checks closed-shell gaps without training data",
+    "Model guided screening of 131 audited hypothetical 3D MOFs, validated prospectively",
+    "27 frameworks computed, 18 labels: all open-shell Fe, Co and Cu frameworks below 1 eV",
+    "Guided picks give 3 to 4 times more low gap hits than random; retraining adds little",
+    "Fe and Co gaps are set by metal d states; Zn4O gaps follow the linker; Cu in between",
+    "Periodic GFN1-xTB checks closed-shell predictions without any training data",
   ] },
 ];
 module.exports = { blocks, refs, docTitle: "Highlights", lineNumbers: false };

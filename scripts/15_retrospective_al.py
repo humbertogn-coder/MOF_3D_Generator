@@ -14,8 +14,9 @@ Set-up (mirrors the prospective workflow)
     Mn, Fe, Co, Ni, Cu, Zn, Mg and otherwise only C, H, N, O, F.
     Each repeat draws a pool of 150 structures (the real catalogue has 131).
   * Labels: the QMOF PBE gap plays the role of the DFT result.
-  * Batches: 11, then 6 per iteration (as in the prospective run; 23 labels after three
-    batches), continued to 8 batches (53 labels) to show the trend.
+  * Batches: 11, then 8 per iteration, as in the prospective run (27 frameworks selected
+    after three batches), continued to 7 batches (59 labels) to show the trend. (An earlier
+    version used 11 + 6 + 6 ...; the schedule is set by SCHEDULE / BUDGET below.)
   * Surrogate: ExtraTrees with the paper's settings (300 trees, max_features='sqrt',
     min_samples_leaf=2, feature set C). One member per repeat (seed varies) instead of
     five, to keep the cost down; sigma is the spread over its trees. New labels are added
@@ -62,7 +63,9 @@ from mofal.surrogate import ood_ranges, train_ensemble  # noqa: E402
 
 METALS = {"Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Mg"}
 LIGHT = {"C", "H", "N", "O", "F"}
-SCHEDULE = (11, 6, 6, 6, 6, 6, 6, 6)
+SCHEDULE = (11, 8, 8, 8, 8, 8, 8)
+BUDGET = sum(SCHEDULE[:3])          # labels after the three prospective batches (27)
+BUDGET_END = sum(SCHEDULE)          # 59
 POOL_SIZE = 150
 STRATEGIES = ("random", "greedy", "lcb", "paper", "paper_static", "uncertainty")
 RETRAIN = {"random", "greedy", "lcb", "paper", "uncertainty"}
@@ -194,7 +197,7 @@ def main():
 
 # ------------------------------------------------------------------ summary + figure
 LABELS = {"random": "Random", "greedy": "Greedy (lowest μ)", "lcb": "LCB (μ − σ)",
-          "paper": "Paper acquisition (LCB + caps)", "paper_static": "Paper acquisition, no retraining",
+          "paper": "This work (LCB + novelty + caps)", "paper_static": "This work, no retraining",
           "uncertainty": "Uncertainty (highest σ)"}
 
 
@@ -216,10 +219,10 @@ def summarize(df: pd.DataFrame):
                              float_format="%.3f", lineterminator="\n")
     mae.reset_index().to_csv(OUT / "retro_al_accuracy_summary.csv", index=False,
                              float_format="%.3f", lineterminator="\n")
-    # headline table at the prospective budget (23 labels) and at 53 labels
+    # headline table at the prospective budget (27 selected frameworks) and at the end of the schedule
     pool_rate = df.groupby("repeat")[["pool_n_lt_0p5", "pool_n_lt_1p0"]].first().mean() / POOL_SIZE
     head = []
-    for budget in (23, 53):
+    for budget in (BUDGET, BUDGET_END):
         for s in STRATEGIES:
             a = sel[(sel.strategy == s) & (sel.n_after == budget)]
             b = df[(df.strategy == s) & (df.n_before == budget)]
@@ -271,12 +274,12 @@ def figure(df, plt):
             ax.plot(m.index, m.values, color=c, ls=ls, marker=mk, ms=3, lw=1.5, label=LABELS[s])
             if s in ("paper", "random"):   # spread (1 s.d. over repeats) for the two reference curves
                 ax.fill_between(m.index, m - sd, m + sd, color=c, alpha=0.12, lw=0)
-        ax.axvline(23, color=INK2, lw=0.8, ls=(0, (2, 2)))
+        ax.axvline(BUDGET, color=INK2, lw=0.8, ls=(0, (2, 2)))
         ax.set_xlabel("DFT labels acquired")
         ax.set_ylabel(ylab)
     axes[2].axhline(0, color=INK2, lw=0.8)
 
-    axes[0].text(23.5, axes[0].get_ylim()[1] * 0.98, "budget of\nthis work", va="top", fontsize=6.5, color=INK2)
+    axes[0].text(BUDGET + 0.5, axes[0].get_ylim()[1] * 0.98, "frameworks selected\nin this work", va="top", fontsize=6.5, color=INK2)
     for k, ax in enumerate(axes):
         ax.text(-0.02, 1.03, "abc"[k], transform=ax.transAxes, fontweight="bold", fontsize=9, ha="right")
     h, l = axes[0].get_legend_handles_labels()

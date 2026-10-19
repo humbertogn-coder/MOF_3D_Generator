@@ -19,11 +19,12 @@
  "STab:labels_full": 11,
  "STab:spin": 12,
  "STab:excluded": 13,
- "STab:band_edges": 14,
- "STab:compute": 15,
- "STab:xtb_qmof": 16,
- "STab:xtb_cand": 17,
- "STab:xtb_edges": 18,
- "STab:retro": 19,
- "STab:hse": 20
+ "STab:robust": 14,
+ "STab:band_edges": 15,
+ "STab:compute": 16,
+ "STab:xtb_qmof": 17,
+ "STab:xtb_cand": 18,
+ "STab:xtb_edges": 19,
+ "STab:retro": 20,
+ "STab:hse": 21
 }
