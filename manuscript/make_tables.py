@@ -61,7 +61,7 @@ for r in lab.itertuples():
     name = f"{FAM[r.family]}, {linker_fmt(r.linker)}" + (f" ({r.known_mof})" if isinstance(r.known_mof, str) and r.known_mof else "")
     edges = f"{GRP[r.VB_dominant]} / {GRP[r.CB_dominant]}"
     rows.append([name, formula(r.formula), str(int(r.n_atoms)), str(int(r.iteration)),
-                 f"{r.mu_prospective:.2f} ± {r.sigma_prospective:.2f}", f"{r.gap_eV:.2f}", r.spin_state, edges])
+                 f"{r.mu_prospective:.2f} ± {r.sigma_prospective:.2f}", f"{r.gap_eV:.2f}", r.spin_state.replace("NM (low spin)", "NM"), edges])
 T["labels"] = dict(header=["Framework", "Formula (cell)", "Atoms", "Iter.", "μ ± σ before DFT (eV)", "PBE-D3 gap (eV)",
                            "Spin state", "VBM / CBM"], rows=rows, widths=[2.6, 1.9, 0.7, 0.6, 1.5, 1.1, 1.3, 1.4])
 

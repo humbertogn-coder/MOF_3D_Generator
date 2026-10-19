@@ -74,6 +74,7 @@ pyzeo (Zeo++ bindings), xgboost, lightgbm, shap.
 | Final tables and figures of the DFT campaign | `python scripts/18_final_tables.py` | `results/final/*.csv`, `fig_al_prospective.pdf`, `fig_family_series.pdf` |
 | DOS / PDOS figures of the 18 labels | `python scripts/19_dos_figures.py` | `fig_dos_representative.pdf`, `fig_S_dos_all.pdf`, `results/band_edges/dos_curves/` |
 | Workflow schematic and graphical abstract | `python scripts/20_workflow_figure.py`, `python scripts/21_graphical_abstract.py` | `fig_workflow.pdf`, `graphical_abstract.png` |
+| Structure drawings (six families, two collapses; all 18 labels) | `python scripts/22_structure_figures.py` | `fig_structures.pdf`, `fig_S_structures_all.pdf` |
 | Manuscript, SI and highlights (.docx) | see `manuscript/README.md` | `manuscript/*.docx` |
 
 All random seeds are fixed. The benchmark split is `train_test_split(test_size=0.2,

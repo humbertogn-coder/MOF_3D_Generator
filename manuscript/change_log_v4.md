@@ -85,3 +85,9 @@ Paria 2020, Avilés 2026 (the E_F-character argument it supported is gone), ET-A
 - New SI Table (robustness): headline numbers with and without the six convergence exceptions (open-shell
   MAE 0.23 -> 0.24 eV, all remaining open-shell labels < 1 eV, Zn4O MAE unchanged).
 - Limitations: broken-symmetry statics were run on the FM-relaxed geometry (new sentence).
+
+## v4.2 (2026-10-19)
+- New Figure 4 (scripts/22_structure_figures.py): one DFT-relaxed framework per family (a to f) and two of
+  the collapsed frameworks before and after DFT (g to j), drawn from the CIF/POSCAR files with ASE and
+  matplotlib. New Figure S5 with all 18 labelled frameworks. Later figures renumbered (family series is
+  now Fig. 5, band edges Fig. 6, DOS Fig. 7, prospective parity Fig. 8, retrospective Fig. 9, xTB Fig. 10).
